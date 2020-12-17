@@ -1,0 +1,107 @@
+[
+    {
+        "id": "535",
+        "class_id": 7,
+        "position": [3.8, -4.5, 1.175],
+        "direction": [0, -1, 0],
+        "width": 1.205
+    },
+    {
+        "id": "533",
+        "class_id": 7,
+        "position": [3, -7.6, 1.175],
+        "direction": [1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "522",
+        "class_id": 6,
+        "position": [5.4, -7.6, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "520",
+        "class_id": 7,
+        "position": [5.4, -13.7, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "520T",
+        "class_id": 7,
+        "position": [5.4, -28.2, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "527A",
+        "class_id": 6,
+        "position": [3, -22.1, 1.175],
+        "direction": [1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "527B",
+        "class_id": 6,
+        "position": [3, -28.2, 1.175],
+        "direction": [1 , 0,  0],
+        "width": 1.205
+    },
+    {
+        "id": "525A",
+        "class_id": 7,
+        "position": [3, -30.6, 1.175],
+        "direction": [1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "525B",
+        "class_id": 7,
+        "position": [3, -36.6, 1.1685],
+        "direction": [1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "518",
+        "class_id": 6,
+        "position": [5.4, -30.1, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "514",
+        "class_id": 6,
+        "position": [5.4, -33.3, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.00
+    },
+    {
+        "id": "511",
+        "class_id": 6,
+        "position": [53.5, -37.9, 1.175],
+        "direction": [0, 1, 0],
+        "width": 1.27
+    },
+    {
+        "id": "519A",
+        "class_id": 7,
+        "position": [20.7, -37.9, 1.175],
+        "direction": [0, 1, 0],
+        "width": 1.28
+    },
+    {
+        "id": "505",
+        "class_id": 6,
+        "position": [47.3, -14.105, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.27
+    },
+    {
+        "id": "502",
+        "class_id": 6,
+        "position": [31.3, -7, 1.175],
+        "direction": [0, 1, 0],
+        "width": 1.205
+    }
+]

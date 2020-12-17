@@ -1,0 +1,44 @@
+[
+    {
+        "id": "402",
+        "class_id": 6,
+        "position": [31.3, -7, 1.175],
+        "direction": [0, 1, 0],
+        "width": 1.205
+    },
+    {
+        "id": "426",
+        "class_id": 6,
+        "position": [5.4, -11.3, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "424",
+        "class_id": 6,
+        "position": [5.4, -14.2, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "422",
+        "class_id": 6,
+        "position": [5.4, -20.9, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "420",
+        "class_id": 6,
+        "position": [5.4, -22.65, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    },
+    {
+        "id": "418",
+        "class_id": 6,
+        "position": [5.4, -31.15, 1.175],
+        "direction": [-1, 0, 0],
+        "width": 1.205
+    }
+]

@@ -1,0 +1,58 @@
+{0: 'door_way', 1: 'door_open', 2: 'door_close', 3: 'door_unknown', 4: 'door_hydrant', 5: 'wall_glass', 6: 'door_leaf_wood', 7: 'door_leaf_glass', 8: 'door_leaf_metal', 9: 'door_lateral_plank', 10: 'door_window', 11: 'doorplate', 12: 'room_number', 13: 'sign_exit', 14: 'light_on', 15: 'light_off'}
+
+
+Metadata(evaluator_type='coco', image_root='/home/hua/GLD_Git/Data_Door/coco_door3',
+json_file='/home/hua/GLD_Git/Data_Door/coco_door3/annotations.json', name='doors',
+thing_classes=['door_way', 'door_open', 'door_close', 'door_unknown', 'door_hydrant', 'wall_glass', 'door_leaf_wood', 'door_leaf_glass', 'door_leaf_metal', 'door_lateral_plank', 'door_window', 'doorplate', 'room_number', 'sign_exit', 'light_on', 'light_off'],
+thing_colors=[(226, 185, 151), (201, 118, 45), (237, 227, 140), (157, 229, 158), (33, 176, 59), (150, 157, 127), (188, 13, 56), (95, 72, 203), (65, 163, 30), (67, 58, 11), (114, 130, 215), (49, 108, 60), (171, 148, 23), (243, 118, 21), (110, 7, 94), (163, 202, 211)],
+thing_dataset_id_to_contiguous_id={0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15})
+
+
+Instances(num_instances=5, image_height=720, image_width=1280,
+fields=[
+pred_boxes: Boxes(tensor([[ 207.3000,    6.1952, 1134.8915,  632.0593],
+        [ 334.9484,    3.8867,  437.1594,  497.3350],
+        [ 891.8085,    1.8026, 1021.8993,  573.8875],
+        [ 256.9146,    0.0000,  488.8978,  595.5143],
+        [ 319.0936,   12.9582,  458.7045,  554.1118]])),
+scores: tensor([0.9957, 0.9948, 0.9827, 0.9779, 0.9341]),
+pred_classes: tensor([ 1, 10,  6,  1,  9]),
+pred_masks: tensor([[[False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         ...,
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False]],
+
+        [[False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         ...,
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False]],
+
+        [[False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         ...,
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False]],
+
+        [[False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         ...,
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False]],
+
+        [[False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         ...,
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False],
+         [False, False, False,  ..., False, False, False]]])])
