@@ -23,7 +23,7 @@
 >
 >pinyin input; sudo dmidecode > hd.txt
 >
->NVIDA: Driver CUDA cuDNN TRT
+>NVIDIA: Driver CUDA cuDNN TRT
 
 ---
 
@@ -50,6 +50,12 @@
 
 ---
 
+> http://wiki.ros.org/cn/melodic/Installation/Ubuntu
+>
+> pip3 install catkin_pkg pyyaml empy rospkg
+
+---
+
 
 > sudo pip3 install ipython
 > 
@@ -61,9 +67,24 @@
 
 ---
 
-> http://wiki.ros.org/cn/melodic/Installation/Ubuntu
+> pip3 install SpeechRecognition
+> sudo apt-get install python3-pyaudio
 >
-> pip3 install catkin_pkg pyyaml empy rospkg
+> pip install pyttsx3 playsound pydub
+> sudo apt install python3-espeak # espeak ffmpeg libespeak1
+
+---
+
+> pip3 install facenet-pytorch
+>
+> pip3 install mtcnn-pytorch # optional
+
+---
+
+> git add -A; git status; git commit --amend
+> git push --force-with-lease origin master
+>
+> git reset --hard HEAD^; git pull --force
 
 ---
 
@@ -109,25 +130,28 @@
 
 ---
 
-> ssh aic@10.2.53.146
-> scp -r xxx aic@10.2.53.146:/home/aic
-> sudo sshfs -o allow_other aic@10.2.53.146:/home/aic ~/AIC
+> ssh room@10.2.53.12
+> scp -r xxx room@10.2.53.12:/home
+> 
+> sudo sshfs -o allow_other ait@10.1.191.58:/home ~/AIT
 >
-> scp -r xxx room@10.2.53.149:/home/room
-> sudo sshfs -o allow_other room@10.2.53.149:/home/room ~/AI2
+> sudo sshfs -o allow_other aic@10.2.53.151:/home ~/AIC
+> 
+>sudo sshfs -o allow_other room@10.2.53.12:/home ~/AI2
+> 
+> sudo sshfs -o allow_other hua@10.2.55.146:/home ~/HUA
 >
-> scp -r xxx ait@10.1.137.55:/home/ait
-> sudo sshfs -o allow_other ait@10.1.137.55:/home/ait ~/AIT
->
-> scp -r xxx hua@10.2.55.146:/home/hua
-> sudo sshfs -o allow_other hua@10.2.55.146:/home/hua ~/HUA
->
-> scp -r xxx hua@10.1.191.83:/home/hua
-> sudo sshfs -o allow_other hua@10.1.191.83:/home/hua ~/XavierNX
+> sudo sshfs -o allow_other hua@10.1.191.83:/home ~/Xavier
 
 ---
 
+> sudo su; cd /
+>
+> tar -cvpzf /home/backup.tgz --exclude=/home/backup* --exclude=/proc --exclude=/tmp --exclude=/lost+found --exclude=/media --exclude=/mnt --exclude=/run /
+>
+> tar tvf backup.tgz | grep xxx
 
+---
 
 
 $$

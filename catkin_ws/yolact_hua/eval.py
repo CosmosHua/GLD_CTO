@@ -1,4 +1,19 @@
+# For cv2+matplotlib on Jetson:
+# sudo apt-get install python3-gi
+#import matplotlib, gi
+#matplotlib.use('Agg') #'TkAgg'
+#gi.require_version('Gtk','2.0')
+
+import numpy as np
+import torch, pycocotools
+import matplotlib.pyplot as plt
+import argparse, cProfile, pickle
+import os, cv2, json, time, random
+import torch.backends.cudnn as cudnn
+from torch.autograd import Variable
+
 from yolact import Yolact
+from data import cfg, set_cfg, set_dataset
 from data import COCODetection, get_label_map, MEANS, COLORS
 from utils.augmentations import BaseTransform, FastBaseTransform, Resize
 from utils.functions import MovingAverage, ProgressBar
@@ -6,31 +21,12 @@ from layers.box_utils import jaccard, center_size, mask_iou
 from utils import timer
 from utils.functions import SavePath
 from layers.output_utils import postprocess, undo_image_transformation
-import pycocotools
 
-from data import cfg, set_cfg, set_dataset
-
-import numpy as np
-import torch
-import torch.backends.cudnn as cudnn
-from torch.autograd import Variable
-import argparse
-import time
-import random
-import cProfile
-import pickle
-import json
-import os
 from collections import defaultdict
 from pathlib import Path
 from collections import OrderedDict
 from PIL import Image
 
-# sudo apt-get install python3-gi
-# For cv2 & matplotlib run on Jetson
-#import gi; gi.require_version('Gtk','2.0')
-import matplotlib.pyplot as plt
-import cv2
 
 def str2bool(v):
     if v.lower() in ('yes', 'true', 't', 'y', '1'):

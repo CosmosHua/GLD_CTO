@@ -2,7 +2,7 @@
 # coding: utf-8
 
 import numpy as np
-import os, sys, cv2, json
+import os, cv2, sys, json
 sys.path.append('yolov5')
 #from yolov5.infer import yolov5_det
 from yolov5.infer1 import yolov5_det
@@ -17,7 +17,7 @@ from sensor_msgs.msg import Image, CompressedImage, CameraInfo, LaserScan
 from message_filters import Subscriber, TimeSynchronizer, ApproximateTimeSynchronizer
 
 
-tc = {'Using':(0,255,0), 'Unused maybe':(0,0,255), '':(0,255,255)}
+tc = {'in use':(0,255,0), 'vacant maybe':(0,0,255), '':(0,255,255)}
 cam_depth = {'RealSense':'/camera/aligned_depth_to_color/image_raw', 
     'Kinect':'/depth_to_rgb/image_raw', 'ZED':'/zed_node/depth/depth_registered'}
 cam_color = {'RealSense':'/camera/color/image_raw/compressed', 'Kinect':'/rgb/image_raw/compressed', 
@@ -27,10 +27,11 @@ class ros_det:
     def __init__(self, model, dst, cls=None, show=False):
         '''Initialize ros publisher, ros subscriber'''
         rospy.init_node('ros_det', anonymous=True)
-        self.Det = yolov5_det(model, cls=cls); self.show = []
-        self.Infer1 = lambda x: self.Det.infer1(x,True,True,show)
-        self.Infer = lambda x: self.Det.infer(x,dst,show)[0]
+        self.Det = yolov5_det(model, cls=cls)
+        self.Infer = lambda x: self.Det.infer(x, dst, show)[0]
+        self.Infer1 = lambda x: self.Det.infer1(x, True, True, show)
         self.results = {'520w':'', '523':'', '501':'', '502':'', '522':''}
+        self.dst = dst; self.show = []
 
         img_rgb = TPC(cam_color.values()); #img_depth = TPC(cam_depth.values())
         self.out_det = rospy.Publisher('/output/det/compressed', CompressedImage, queue_size=10)
@@ -54,17 +55,17 @@ class ros_det:
         rgb = np.frombuffer(self.rgb.data, 'uint8')
         rgb = cv2.imdecode(rgb, cv2.IMREAD_COLOR)
 
-        ff = '%s/%s.jpg' % (dst, stat.data)
+        ff = '%s/%s.jpg' % (self.dst, stat.data)
         #cv2.imwrite(ff, rgb); res = self.Infer(ff)
         im, res, t = self.Infer1(rgb); #cv2.imwrite(ff, im)
         print('%s: %.2fms'%(ff,t), res) # for yolov5.infer1
         
         key = str(stat.data).split()[0]
-        if len(res)>0: self.results[key] = 'Using'
-        if key not in self.results or self.results[key]!='Using':
-            self.results[key] = 'Unused maybe'
-        '''res = 'Using' if len(res)>0 else 'Unused maybe'
-        if key not in self.results or res=='Using':
+        if len(res)>0: self.results[key] = 'in use'
+        if key not in self.results or self.results[key]!='in use':
+            self.results[key] = 'vacant maybe'
+        '''res = 'in use' if len(res)>0 else 'vacant maybe'
+        if key not in self.results or res=='in use':
             self.results[key] = res'''
         
         res = self.results[key] # for short

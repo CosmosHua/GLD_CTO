@@ -2,9 +2,9 @@
 # coding: utf-8
 
 import os, cv2
-import argparse
 import time as tm
 import numpy as np
+import argparse, json
 import pyrealsense2 as rs
 
 
@@ -41,13 +41,13 @@ profile = pipeline.start(config) # Start streaming
 depth_sensor = profile.get_device().first_depth_sensor()
 
 # rs.align allows us to perform alignment to others frames.
-align = rs.align(rs.stream.color)
+align = rs.align(rs.stream.color) # align to color stream
 
 
 ##########################################################################################
 def RS2img(save=args.save, ths=args.blur):
     #colorizer = rs.colorizer() # jet colormap
-    JS=[]; args.save, args.blur = save, ths; print(args)
+    JS = []; args.save, args.blur = save, ths; print(args)
     dst = str(int(tm.time())) if device else args.source[:-4]
     if save: os.makedirs(dst, exist_ok=True); os.chdir(dst)
 
@@ -99,7 +99,6 @@ def RS2img(save=args.save, ths=args.blur):
     pipeline.stop() # Stop streaming
     with open(f'{dst}.json','w+') as ff:
         json.dump(JS, ff, indent=4); return JS
-
 
 
 #######################################################

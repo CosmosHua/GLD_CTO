@@ -1,0 +1,4383 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>WATER（水滴）软件API手册.html</title>
+  <meta name="generator" content="Haroopad 0.13.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>div.oembedall-githubrepos{border:1px solid #DDD;border-radius:4px;list-style-type:none;margin:0 0 10px;padding:8px 10px 0;font:13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;width:452px;background-color:#fff}div.oembedall-githubrepos .oembedall-body{background:-moz-linear-gradient(center top,#FAFAFA,#EFEFEF);background:-webkit-gradient(linear,left top,left bottom,from(#FAFAFA),to(#EFEFEF));border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top:1px solid #EEE;margin-left:-10px;margin-top:8px;padding:5px 10px;width:100%}div.oembedall-githubrepos h3{font-size:14px;margin:0;padding-left:18px;white-space:nowrap}div.oembedall-githubrepos p.oembedall-description{color:#444;font-size:12px;margin:0 0 3px}div.oembedall-githubrepos p.oembedall-updated-at{color:#888;font-size:11px;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats{border:none;float:right;font-size:11px;font-weight:700;padding-left:15px;position:relative;z-index:5;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats li{border:none;color:#666;display:inline-block;list-style-type:none;margin:0!important}div.oembedall-githubrepos ul.oembedall-repo-stats li a{background-color:transparent;border:none;color:#666!important;background-position:5px -2px;background-repeat:no-repeat;border-left:1px solid #DDD;display:inline-block;height:21px;line-height:21px;padding:0 5px 0 23px}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a{border-left:medium none;margin-right:-3px}div.oembedall-githubrepos ul.oembedall-repo-stats li a:hover{background:5px -27px no-repeat #4183C4;color:#FFF!important;text-decoration:none}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a:hover{border-bottom-left-radius:3px;border-top-left-radius:3px}ul.oembedall-repo-stats li:last-child a:hover{border-bottom-right-radius:3px;border-top-right-radius:3px}span.oembedall-closehide{background-color:#aaa;border-radius:2px;cursor:pointer;margin-right:3px}div.oembedall-container{margin-top:5px;text-align:left}.oembedall-ljuser{font-weight:700}.oembedall-ljuser img{vertical-align:bottom;border:0;padding-right:1px}.oembedall-stoqembed{border-bottom:1px dotted #999;float:left;overflow:hidden;width:730px;line-height:1;background:#FFF;color:#000;font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;font-size:80%;text-align:left;margin:0;padding:0}.oembedall-stoqembed a{color:#07C;text-decoration:none;margin:0;padding:0}.oembedall-stoqembed a:hover{text-decoration:underline}.oembedall-stoqembed a:visited{color:#4A6B82}.oembedall-stoqembed h3{font-family:Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;font-size:130%;font-weight:700;margin:0;padding:0}.oembedall-stoqembed .oembedall-reputation-score{color:#444;font-size:120%;font-weight:700;margin-right:2px}.oembedall-stoqembed .oembedall-user-info{height:35px;width:185px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-gravatar32{float:left;height:32px;width:32px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-details{float:left;margin-left:5px;overflow:hidden;white-space:nowrap;width:145px}.oembedall-stoqembed .oembedall-question-hyperlink{font-weight:700}.oembedall-stoqembed .oembedall-stats{background:#EEE;margin:0 0 0 7px;padding:4px 7px 6px;width:58px}.oembedall-stoqembed .oembedall-statscontainer{float:left;margin-right:8px;width:86px}.oembedall-stoqembed .oembedall-votes{color:#555;padding:0 0 7px;text-align:center}.oembedall-stoqembed .oembedall-vote-count-post{font-size:240%;color:#808185;display:block;font-weight:700}.oembedall-stoqembed .oembedall-views{color:#999;padding-top:4px;text-align:center}.oembedall-stoqembed .oembedall-status{margin-top:-3px;padding:4px 0;text-align:center;background:#75845C;color:#FFF}.oembedall-stoqembed .oembedall-status strong{color:#FFF;display:block;font-size:140%}.oembedall-stoqembed .oembedall-summary{float:left;width:635px}.oembedall-stoqembed .oembedall-excerpt{line-height:1.2;margin:0;padding:0 0 5px}.oembedall-stoqembed .oembedall-tags{float:left;line-height:18px}.oembedall-stoqembed .oembedall-tags a:hover{text-decoration:none}.oembedall-stoqembed .oembedall-post-tag{background-color:#E0EAF1;border-bottom:1px solid #3E6D8E;border-right:1px solid #7F9FB6;color:#3E6D8E;font-size:90%;line-height:2.4;margin:2px 2px 2px 0;padding:3px 4px;text-decoration:none;white-space:nowrap}.oembedall-stoqembed .oembedall-post-tag:hover{background-color:#3E6D8E;border-bottom:1px solid #37607D;border-right:1px solid #37607D;color:#E0EAF1}.oembedall-stoqembed .oembedall-fr{float:right}.oembedall-stoqembed .oembedall-statsarrow{background-image:url(http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3);background-repeat:no-repeat;overflow:hidden;background-position:0 -435px;float:right;height:13px;margin-top:12px;width:7px}.oembedall-facebook1{border:1px solid #1A3C6C;padding:0;font:13.34px/1.4 verdana;width:500px}.oembedall-facebook2{background-color:#627add}.oembedall-facebook2 a{color:#e8e8e8;text-decoration:none}.oembedall-facebookBody{background-color:#fff;vertical-align:top;padding:5px}.oembedall-facebookBody .contents{display:inline-block;width:100%}.oembedall-facebookBody div img{float:left;margin-right:5px}div.oembedall-lanyard{-webkit-box-shadow:none;-webkit-transition-delay:0s;-webkit-transition-duration:.4000000059604645s;-webkit-transition-property:width;-webkit-transition-timing-function:cubic-bezier(0.42,0,.58,1);background-attachment:scroll;background-clip:border-box;background-color:transparent;background-image:none;background-origin:padding-box;border-width:0;box-shadow:none;color:#112644;display:block;float:left;font-family:'Trebuchet MS',Trebuchet,sans-serif;font-size:16px;height:253px;line-height:19px;margin:0;max-width:none;min-height:0;outline:#112644 0;overflow-x:visible;overflow-y:visible;padding:0;position:relative;text-align:left;vertical-align:baseline;width:804px}div.oembedall-lanyard .tagline{font-size:1.5em}div.oembedall-lanyard .wrapper{overflow:hidden;clear:both}div.oembedall-lanyard .split{float:left;display:inline}div.oembedall-lanyard .prominent-place .flag:active,div.oembedall-lanyard .prominent-place .flag:focus,div.oembedall-lanyard .prominent-place .flag:hover,div.oembedall-lanyard .prominent-place .flag:link,div.oembedall-lanyard .prominent-place .flag:visited{float:left;display:block;width:48px;height:48px;position:relative;top:-5px;margin-right:10px}div.oembedall-lanyard .place-context{font-size:.889em}div.oembedall-lanyard .prominent-place .sub-place{display:block}div.oembedall-lanyard .prominent-place{font-size:1.125em;line-height:1.1em;font-weight:400}div.oembedall-lanyard .main-date{color:#8CB4E0;font-weight:700;line-height:1.1}div.oembedall-lanyard .first{width:48.57%;margin:0 0 0 2.857%}.mermaid .label{color:#333}.node circle,.node polygon,.node rect{fill:#cde498;stroke:#13540c;stroke-width:1px}.edgePath .path{stroke:green;stroke-width:1.5px}.cluster rect{fill:#cdffb2;rx:40;stroke:#6eaa49;stroke-width:1px}.cluster text{fill:#333}.actor{stroke:#13540c;fill:#cde498}text.actor{fill:#000;stroke:none}.actor-line{stroke:grey}.messageLine0{stroke-width:1.5;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#333}.messageLine1{stroke-width:1.5;stroke-dasharray:"2 2";stroke:#333}#arrowhead{fill:#333}#crosshead path{fill:#333!important;stroke:#333!important}.messageText{fill:#333;stroke:none}.labelBox{stroke:#326932;fill:#cde498}.labelText,.loopText{fill:#000;stroke:none}.loopLine{stroke-width:2;stroke-dasharray:"2 2";marker-end:"url(#arrowhead)";stroke:#326932}.note{stroke:#6eaa49;fill:#fff5ad}.noteText{fill:#000;stroke:none;font-family:'trebuchet ms',verdana,arial;font-size:14px}.section{stroke:none;opacity:.2}.section0,.section2{fill:#6eaa49}.section1,.section3{fill:#fff;opacity:.2}.sectionTitle0,.sectionTitle1,.sectionTitle2,.sectionTitle3{fill:#333}.sectionTitle{text-anchor:start;font-size:11px;text-height:14px}.grid .tick{stroke:lightgrey;opacity:.3;shape-rendering:crispEdges}.grid path{stroke-width:0}.today{fill:none;stroke:red;stroke-width:2px}.task{stroke-width:2}.taskText{text-anchor:middle;font-size:11px}.taskTextOutsideRight{fill:#000;text-anchor:start;font-size:11px}.taskTextOutsideLeft{fill:#000;text-anchor:end;font-size:11px}.taskText0,.taskText1,.taskText2,.taskText3{fill:#fff}.task0,.task1,.task2,.task3{fill:#487e3a;stroke:#13540c}.taskTextOutside0,.taskTextOutside1,.taskTextOutside2,.taskTextOutside3{fill:#000}.active0,.active1,.active2,.active3{fill:#cde498;stroke:#13540c}.activeText0,.activeText1,.activeText2,.activeText3{fill:#000!important}.done0,.done1,.done2,.done3{stroke:grey;fill:lightgrey;stroke-width:2}.doneText0,.doneText1,.doneText2,.doneText3{fill:#000!important}.crit0,.crit1,.crit2,.crit3{stroke:#f88;fill:red;stroke-width:2}.activeCrit0,.activeCrit1,.activeCrit2,.activeCrit3{stroke:#f88;fill:#cde498;stroke-width:2}.doneCrit0,.doneCrit1,.doneCrit2,.doneCrit3{stroke:#f88;fill:lightgrey;stroke-width:2;cursor:pointer;shape-rendering:crispEdges}.activeCritText0,.activeCritText1,.activeCritText2,.activeCritText3,.doneCritText0,.doneCritText1,.doneCritText2,.doneCritText3{fill:#000!important}.titleText{text-anchor:middle;font-size:18px;fill:#000}text{font-family:'trebuchet ms',verdana,arial;font-size:14px}html{height:100%}body{margin:0!important;padding:5px 20px 26px!important;background-color:#fff;font-family:"Lucida Grande","Segoe UI","Apple SD Gothic Neo","Malgun Gothic","Lucida Sans Unicode",Helvetica,Arial,sans-serif;font-size:.9em;overflow-x:hidden;overflow-y:auto}br,h1,h2,h3,h4,h5,h6{clear:both}hr.page{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x;border:0;height:3px;padding:0}hr.underscore{border-top-style:dashed!important}body >:first-child{margin-top:0!important}img.plugin{box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:3px}iframe{border:0}figure{-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0}kbd{border:1px solid #aaa;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-box-shadow:1px 2px 2px #ddd;-webkit-box-shadow:1px 2px 2px #ddd;box-shadow:1px 2px 2px #ddd;background-color:#f9f9f9;background-image:-moz-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-o-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-webkit-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:linear-gradient(top,#eee,#f9f9f9,#eee);padding:1px 3px;font-family:inherit;font-size:.85em}.oembeded .oembed_photo{display:inline-block}img[data-echo]{margin:25px 0;width:100px;height:100px;background:url(../img/ajax.gif) center center no-repeat #fff}.spinner{display:inline-block;width:10px;height:10px;margin-bottom:-.1em;border:2px solid rgba(0,0,0,.5);border-top-color:transparent;border-radius:100%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}.spinner:after{content:'';display:block;width:0;height:0;position:absolute;top:-6px;left:0;border:4px solid transparent;border-bottom-color:rgba(0,0,0,.5);-webkit-transform:rotate(45deg);transform:rotate(45deg)}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}p.toc{margin:0!important}p.toc ul{padding-left:10px}p.toc>ul{padding:10px;margin:0 10px;display:inline-block;border:1px solid #ededed;border-radius:5px}p.toc li,p.toc ul{list-style-type:none}p.toc li{width:100%;padding:0;overflow:hidden}p.toc li a::after{content:"."}p.toc li a:before{content:"• "}p.toc h5{text-transform:uppercase}p.toc .title{float:left;padding-right:3px}p.toc .number{margin:0;float:right;padding-left:3px;background:#fff;display:none}input.task-list-item{margin-left:-1.62em}.markdown{font-family:"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",'Segoe UI',AppleSDGothicNeo-Medium,'Malgun Gothic',Verdana,Tahoma,sans-serif;padding:20px}.markdown a{text-decoration:none;vertical-align:baseline}.markdown a:hover{text-decoration:underline}.markdown h1{font-size:2.2em;font-weight:700;margin:1.5em 0 1em}.markdown h2{font-size:1.8em;font-weight:700;margin:1.275em 0 .85em}.markdown h3{font-size:1.6em;font-weight:700;margin:1.125em 0 .75em}.markdown h4{font-size:1.4em;font-weight:700;margin:.99em 0 .66em}.markdown h5{font-size:1.2em;font-weight:700;margin:.855em 0 .57em}.markdown h6{font-size:1em;font-weight:700;margin:.75em 0 .5em}.markdown h1+p,.markdown h1:first-child,.markdown h2+p,.markdown h2:first-child,.markdown h3+p,.markdown h3:first-child,.markdown h4+p,.markdown h4:first-child,.markdown h5+p,.markdown h5:first-child,.markdown h6+p,.markdown h6:first-child{margin-top:0}.markdown hr{border:1px solid #ccc}.markdown p{margin:1em 0;word-wrap:break-word}.markdown ol{list-style-type:decimal}.markdown li{display:list-item;line-height:1.4em}.markdown blockquote{margin:1em 20px}.markdown blockquote>:first-child{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown blockquote cite:before{content:'\2014 \00A0'}.markdown .code{border-radius:3px;word-wrap:break-word}.markdown pre{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;overflow:auto;padding:.5em}.markdown pre code{border:0;display:block}.markdown pre>code{font-family:Consolas,Inconsolata,Courier,monospace;font-weight:700;white-space:pre;margin:0}.markdown code{border-radius:3px;word-wrap:break-word;border:1px solid #ccc;padding:0 5px;margin:0 2px}.markdown img{max-width:100%}.markdown mark{color:#000;background-color:#fcf8e3}.markdown table{padding:0;border-collapse:collapse;border-spacing:0;margin-bottom:16px}.markdown table tr td,.markdown table tr th{border:1px solid #ccc;margin:0;padding:6px 13px}.markdown table tr th{font-weight:700}.markdown table tr th>:first-child{margin-top:0}.markdown table tr th>:last-child{margin-bottom:0}.markdown table tr td>:first-child{margin-top:0}.markdown table tr td>:last-child{margin-bottom:0}@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700);.haroopad{padding:20px;color:#222;font-size:15px;font-family:"Roboto Condensed",Tauri,"Hiragino Sans GB","Microsoft YaHei",STHeiti,SimSun,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",'Segoe UI',AppleSDGothicNeo-Medium,'Malgun Gothic',Verdana,Tahoma,sans-serif;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}.haroopad a{color:#3269a0}.haroopad a:hover{color:#4183c4}.haroopad h2{border-bottom:1px solid #e6e6e6}.haroopad h6{color:#777}.haroopad hr{border:1px solid #e6e6e6}.haroopad blockquote>code,.haroopad h1>code,.haroopad h2>code,.haroopad h3>code,.haroopad h4>code,.haroopad h5>code,.haroopad h6>code,.haroopad li>code,.haroopad p>code,.haroopad td>code{font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;font-size:85%;background-color:rgba(0,0,0,.02);padding:.2em .5em;border:1px solid #efefef}.haroopad pre>code{font-size:1em;letter-spacing:-1px;font-weight:700}.haroopad blockquote{border-left:4px solid #e6e6e6;padding:0 15px;color:#777}.haroopad table{background-color:#fafafa}.haroopad table tr td,.haroopad table tr th{border:1px solid #e6e6e6}.haroopad table tr:nth-child(2n){background-color:#f2f2f2}.hljs{display:block;overflow-x:auto;padding:.5em;background:#fdf6e3;color:#657b83;-webkit-text-size-adjust:none}.diff .hljs-header,.hljs-comment,.hljs-doctype,.hljs-javadoc,.hljs-pi,.lisp .hljs-string{color:#93a1a1}.css .hljs-tag,.hljs-addition,.hljs-keyword,.hljs-request,.hljs-status,.hljs-winutils,.method,.nginx .hljs-title{color:#859900}.hljs-command,.hljs-dartdoc,.hljs-hexcolor,.hljs-link_url,.hljs-number,.hljs-phpdoc,.hljs-regexp,.hljs-rules .hljs-value,.hljs-string,.hljs-tag .hljs-value,.tex .hljs-formula{color:#2aa198}.css .hljs-function,.hljs-built_in,.hljs-chunk,.hljs-decorator,.hljs-id,.hljs-identifier,.hljs-localvars,.hljs-title,.vhdl .hljs-literal{color:#268bd2}.hljs-attribute,.hljs-class .hljs-title,.hljs-constant,.hljs-link_reference,.hljs-parent,.hljs-type,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number{color:#b58900}.css .hljs-pseudo,.diff .hljs-change,.hljs-attr_selector,.hljs-cdata,.hljs-header,.hljs-pragma,.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-shebang,.hljs-special,.hljs-subst,.hljs-symbol,.hljs-symbol .hljs-string{color:#cb4b16}.hljs-deletion,.hljs-important{color:#dc322f}.hljs-link_label{color:#6c71c4}.tex .hljs-formula{background:#eee8d5}.MathJax_Hover_Frame{border-radius:.25em;-webkit-border-radius:.25em;-moz-border-radius:.25em;-khtml-border-radius:.25em;box-shadow:0 0 15px #83A;-webkit-box-shadow:0 0 15px #83A;-moz-box-shadow:0 0 15px #83A;-khtml-box-shadow:0 0 15px #83A;border:1px solid #A6D!important;display:inline-block;position:absolute}.MathJax_Hover_Arrow{position:absolute;width:15px;height:11px;cursor:pointer}#MathJax_About{position:fixed;left:50%;width:auto;text-align:center;border:3px outset;padding:1em 2em;background-color:#DDD;color:#000;cursor:default;font-family:message-box;font-size:120%;font-style:normal;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;border-radius:15px;-webkit-border-radius:15px;-moz-border-radius:15px;-khtml-border-radius:15px;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_Menu{position:absolute;background-color:#fff;color:#000;width:auto;padding:5px 0;border:1px solid #CCC;margin:0;cursor:default;font:menu;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;z-index:201;border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;-khtml-border-radius:5px;box-shadow:0 10px 20px gray;-webkit-box-shadow:0 10px 20px gray;-moz-box-shadow:0 10px 20px gray;-khtml-box-shadow:0 10px 20px gray;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}.MathJax_MenuItem{padding:1px 2em;background:0 0}.MathJax_MenuArrow{position:absolute;right:.5em;color:#666}.MathJax_MenuActive .MathJax_MenuArrow{color:#fff}.MathJax_MenuArrow.RTL{left:.5em;right:auto}.MathJax_MenuCheck{position:absolute;left:.7em}.MathJax_MenuCheck.RTL{right:.7em;left:auto}.MathJax_MenuRadioCheck{position:absolute;left:.7em}.MathJax_MenuRadioCheck.RTL{right:.7em;left:auto}.MathJax_MenuLabel{padding:1px 2em 3px 1.33em;font-style:italic}.MathJax_MenuRule{border-top:1px solid #DDD;margin:4px 3px}.MathJax_MenuDisabled{color:GrayText}.MathJax_MenuActive{background-color:#606872;color:#fff}.MathJax_Menu_Close{position:absolute;width:31px;height:31px;top:-15px;left:-15px}#MathJax_Zoom{position:absolute;background-color:#F0F0F0;overflow:auto;display:block;z-index:301;padding:.5em;border:1px solid #000;margin:0;font-weight:400;font-style:normal;text-align:left;text-indent:0;text-transform:none;line-height:normal;letter-spacing:normal;word-spacing:normal;word-wrap:normal;white-space:nowrap;float:none;box-shadow:5px 5px 15px #AAA;-webkit-box-shadow:5px 5px 15px #AAA;-moz-box-shadow:5px 5px 15px #AAA;-khtml-box-shadow:5px 5px 15px #AAA;filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}#MathJax_ZoomOverlay{position:absolute;left:0;top:0;z-index:300;display:inline-block;width:100%;height:100%;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}#MathJax_ZoomFrame{position:relative;display:inline-block;height:0;width:0}#MathJax_ZoomEventTrap{position:absolute;left:0;top:0;z-index:302;display:inline-block;border:0;padding:0;margin:0;background-color:#fff;opacity:0;filter:alpha(opacity=0)}.MathJax_Preview{color:#888}#MathJax_Message{position:fixed;left:1px;bottom:2px;background-color:#E6E6E6;border:1px solid #959595;margin:0;padding:2px 8px;z-index:102;color:#000;font-size:80%;width:auto;white-space:nowrap}#MathJax_MSIE_Frame{position:absolute;top:0;left:0;width:0;z-index:101;border:0;margin:0;padding:0}.MathJax_Error{color:#C00;font-style:italic}footer{position:fixed;font-size:.8em;text-align:right;bottom:0;margin-left:-25px;height:20px;width:100%}</style>
+</head>
+<body class="markdown haroopad">
+<h1 id="water（水滴）软件api手册"><a name="water（水滴）软件api手册" href="#water（水滴）软件api手册"></a>WATER（水滴）软件API手册</h1><p><strong>北京云迹科技有限公司</strong></p><p><strong>文档版本: v1.8.3</strong><br><strong>修订日期: 2020-07-16 </strong></p><p class="toc" style="undefined"></p><ul>
+<li><ul>
+<li><span class="title">
+<a href="#各版本重要改动说明:" title="各版本重要改动说明:">各版本重要改动说明:</a>
+</span>
+<!--span class="number">
+0
+</span-->
+</li>
+<li><span class="title">
+<a href="#适用环境:" title="适用环境:">适用环境:</a>
+</span>
+<!--span class="number">
+1
+</span-->
+</li>
+<li><span class="title">
+<a href="#协议形式和连接方式:" title="协议形式和连接方式:">协议形式和连接方式:</a>
+</span>
+<!--span class="number">
+2
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口使用说明：" title="接口使用说明：">接口使用说明：</a>
+</span>
+<!--span class="number">
+3
+</span-->
+<ul>
+<li><span class="title">
+<a href="#1.机器人移动功能" title="1.机器人移动功能">1.机器人移动功能</a>
+</span>
+<!--span class="number">
+4
+</span-->
+<ul>
+<li><span class="title">
+<a href="#1.1单目标点移动" title="1.1单目标点移动">1.1单目标点移动</a>
+</span>
+<!--span class="number">
+5
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+6
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+7
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口描述：" title="接口描述：">接口描述：</a>
+</span>
+<!--span class="number">
+8
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例:" title="示例:">示例:</a>
+</span>
+<!--span class="number">
+9
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#1.2多目标点移动" title="1.2多目标点移动">1.2多目标点移动</a>
+</span>
+<!--span class="number">
+10
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-1" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+11
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-1" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+12
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口描述：-1" title="接口描述：">接口描述：</a>
+</span>
+<!--span class="number">
+13
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例:-1" title="示例:">示例:</a>
+</span>
+<!--span class="number">
+14
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#2.移动取消功能" title="2.移动取消功能">2.移动取消功能</a>
+</span>
+<!--span class="number">
+15
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-2" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+16
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-2" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+17
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口描述：-2" title="接口描述：">接口描述：</a>
+</span>
+<!--span class="number">
+18
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例:-2" title="示例:">示例:</a>
+</span>
+<!--span class="number">
+19
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#3.获取机器人当前全局状态" title="3.获取机器人当前全局状态">3.获取机器人当前全局状态</a>
+</span>
+<!--span class="number">
+20
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-3" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+21
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-3" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+22
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+23
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+24
+</span-->
+</li>
+<li><span class="title">
+<a href="#对于移动任务相关字段的解释：" title="对于移动任务相关字段的解释：">对于移动任务相关字段的解释：</a>
+</span>
+<!--span class="number">
+25
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#4.获取机器人信息接口" title="4.获取机器人信息接口">4.获取机器人信息接口</a>
+</span>
+<!--span class="number">
+26
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-4" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+27
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-4" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+28
+</span-->
+</li>
+<li><span class="title">
+<a href="#指令说明：" title="指令说明：">指令说明：</a>
+</span>
+<!--span class="number">
+29
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-1" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+30
+</span-->
+</li>
+<li><span class="title">
+<a href="#返回结果字段解释：" title="返回结果字段解释：">返回结果字段解释：</a>
+</span>
+<!--span class="number">
+31
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#5.点位（marker）功能接口" title="5.点位（marker）功能接口">5.点位（marker）功能接口</a>
+</span>
+<!--span class="number">
+32
+</span-->
+<ul>
+<li><span class="title">
+<a href="#5.1在机器人当前位置标记marker" title="5.1在机器人当前位置标记marker">5.1在机器人当前位置标记marker</a>
+</span>
+<!--span class="number">
+33
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-5" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+34
+</span-->
+</li>
+<li><span class="title">
+<a href="#指令说明：-1" title="指令说明：">指令说明：</a>
+</span>
+<!--span class="number">
+35
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-5" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+36
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-1" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+37
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-2" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+38
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#5.2获取marker点位列表" title="5.2获取marker点位列表">5.2获取marker点位列表</a>
+</span>
+<!--span class="number">
+39
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-6" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+40
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-6" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+41
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-2" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+42
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-3" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+43
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#5.3删除marker点位" title="5.3删除marker点位">5.3删除marker点位</a>
+</span>
+<!--span class="number">
+44
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-7" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+45
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-7" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+46
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-3" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+47
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-4" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+48
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#5.4获取点位个数" title="5.4获取点位个数">5.4获取点位个数</a>
+</span>
+<!--span class="number">
+49
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-8" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+50
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-8" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+51
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-4" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+52
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-5" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+53
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#5.5获取点位摘要信息" title="5.5获取点位摘要信息">5.5获取点位摘要信息</a>
+</span>
+<!--span class="number">
+54
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-9" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+55
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-9" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+56
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-5" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+57
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-6" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+58
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#5.6指定坐标标记marker" title="5.6指定坐标标记marker">5.6指定坐标标记marker</a>
+</span>
+<!--span class="number">
+59
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-10" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+60
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-10" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+61
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-6" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+62
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-7" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+63
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#6.机器人直接控制指令" title="6.机器人直接控制指令">6.机器人直接控制指令</a>
+</span>
+<!--span class="number">
+64
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-11" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+65
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-11" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+66
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-7" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+67
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-8" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+68
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#7.机器人急停控制指令" title="7.机器人急停控制指令">7.机器人急停控制指令</a>
+</span>
+<!--span class="number">
+69
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-12" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+70
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-12" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+71
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-8" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+72
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-9" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+73
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#8.校正机器人当前位置" title="8.校正机器人当前位置">8.校正机器人当前位置</a>
+</span>
+<!--span class="number">
+74
+</span-->
+<ul>
+<li><span class="title">
+<a href="#8.1指定marker校正机器人位置" title="8.1指定marker校正机器人位置">8.1指定marker校正机器人位置</a>
+</span>
+<!--span class="number">
+75
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-13" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+76
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-13" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+77
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-9" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+78
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-10" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+79
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#8.2指定坐标校正机器人位置" title="8.2指定坐标校正机器人位置">8.2指定坐标校正机器人位置</a>
+</span>
+<!--span class="number">
+80
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-14" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+81
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-14" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+82
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-10" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+83
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-11" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+84
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#9.请求机器人实时数据" title="9.请求机器人实时数据">9.请求机器人实时数据</a>
+</span>
+<!--span class="number">
+85
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-15" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+86
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-11" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+87
+</span-->
+</li>
+<li><span class="title">
+<a href="#9.1请求机器人实时全局状态" title="9.1请求机器人实时全局状态">9.1请求机器人实时全局状态</a>
+</span>
+<!--span class="number">
+88
+</span-->
+<ul>
+<li><span class="title">
+<a href="#参数：-15" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+89
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-12" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+90
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#9.2请求人检测实时数据" title="9.2请求人检测实时数据">9.2请求人检测实时数据</a>
+</span>
+<!--span class="number">
+91
+</span-->
+<ul>
+<li><span class="title">
+<a href="#参数：-16" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+92
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-13" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+93
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#9.3获取机器人实时速度" title="9.3获取机器人实时速度">9.3获取机器人实时速度</a>
+</span>
+<!--span class="number">
+94
+</span-->
+<ul>
+<li><span class="title">
+<a href="#参数：-17" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+95
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-14" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+96
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#10.机器人主动通知" title="10.机器人主动通知">10.机器人主动通知</a>
+</span>
+<!--span class="number">
+97
+</span-->
+<ul>
+<li><span class="title">
+<a href="#接口说明：-12" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+98
+</span-->
+</li>
+<li><span class="title">
+<a href="#通知列表：" title="通知列表：">通知列表：</a>
+</span>
+<!--span class="number">
+99
+</span-->
+</li>
+<li><span class="title">
+<a href="#字段解释：" title="字段解释：">字段解释：</a>
+</span>
+<!--span class="number">
+100
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-15" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+101
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#11.设置参数" title="11.设置参数">11.设置参数</a>
+</span>
+<!--span class="number">
+102
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-16" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+103
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-18" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+104
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-13" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+105
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-16" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+106
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#12.获取参数" title="12.获取参数">12.获取参数</a>
+</span>
+<!--span class="number">
+107
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-17" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+108
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-19" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+109
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-14" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+110
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-17" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+111
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#13.无线网络接口" title="13.无线网络接口">13.无线网络接口</a>
+</span>
+<!--span class="number">
+112
+</span-->
+<ul>
+<li><span class="title">
+<a href="#13.1获取机器人当前可用的wifi列表" title="13.1获取机器人当前可用的WiFi列表">13.1获取机器人当前可用的WiFi列表</a>
+</span>
+<!--span class="number">
+113
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-18" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+114
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-20" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+115
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-15" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+116
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-18" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+117
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#13.2连接wifi" title="13.2连接WiFi">13.2连接WiFi</a>
+</span>
+<!--span class="number">
+118
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-19" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+119
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-21" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+120
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-16" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+121
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-19" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+122
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#13.3获取当前连接的wifi" title="13.3获取当前连接的WiFi">13.3获取当前连接的WiFi</a>
+</span>
+<!--span class="number">
+123
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-20" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+124
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-22" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+125
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-17" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+126
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-20" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+127
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#13.4获取机器人ip和无线网卡地址" title="13.4获取机器人IP和无线网卡地址">13.4获取机器人IP和无线网卡地址</a>
+</span>
+<!--span class="number">
+128
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-21" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+129
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-23" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+130
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-18" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+131
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-21" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+132
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#13.5获取机器人当前可用的无线列表详细信息" title="13.5获取机器人当前可用的无线列表详细信息">13.5获取机器人当前可用的无线列表详细信息</a>
+</span>
+<!--span class="number">
+133
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-22" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+134
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-24" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+135
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-19" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+136
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-22" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+137
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#14.地图接口" title="14.地图接口">14.地图接口</a>
+</span>
+<!--span class="number">
+138
+</span-->
+<ul>
+<li><span class="title">
+<a href="#14.1获取地图列表" title="14.1获取地图列表">14.1获取地图列表</a>
+</span>
+<!--span class="number">
+139
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-23" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+140
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-25" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+141
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-20" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+142
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-23" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+143
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#14.2设置当前地图" title="14.2设置当前地图">14.2设置当前地图</a>
+</span>
+<!--span class="number">
+144
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-24" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+145
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-26" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+146
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-21" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+147
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-24" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+148
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#14.3获取当前地图" title="14.3获取当前地图">14.3获取当前地图</a>
+</span>
+<!--span class="number">
+149
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-25" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+150
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-27" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+151
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-22" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+152
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-25" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+153
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#15.关机重启接口" title="15.关机重启接口">15.关机重启接口</a>
+</span>
+<!--span class="number">
+154
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-26" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+155
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-28" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+156
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-23" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+157
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-26" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+158
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#16.软件更新接口" title="16.软件更新接口">16.软件更新接口</a>
+</span>
+<!--span class="number">
+159
+</span-->
+<ul>
+<li><span class="title">
+<a href="#16.1-获取当前软件版本" title="16.1 获取当前软件版本">16.1 获取当前软件版本</a>
+</span>
+<!--span class="number">
+160
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-27" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+161
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-29" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+162
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-24" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+163
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-27" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+164
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#16.2-检查更新" title="16.2 检查更新">16.2 检查更新</a>
+</span>
+<!--span class="number">
+165
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-28" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+166
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-30" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+167
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-25" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+168
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-28" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+169
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#16.3-更新" title="16.3 更新">16.3 更新</a>
+</span>
+<!--span class="number">
+170
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-29" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+171
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-31" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+172
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-26" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+173
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-29" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+174
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#16.4重启服务" title="16.4重启服务">16.4重启服务</a>
+</span>
+<!--span class="number">
+175
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-30" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+176
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-32" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+177
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-27" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+178
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-30" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+179
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#17.设置灯带接口" title="17.设置灯带接口">17.设置灯带接口</a>
+</span>
+<!--span class="number">
+180
+</span-->
+<ul>
+<li><span class="title">
+<a href="#17.1设置灯带亮度" title="17.1设置灯带亮度">17.1设置灯带亮度</a>
+</span>
+<!--span class="number">
+181
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-31" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+182
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-33" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+183
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-28" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+184
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-31" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+185
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#17.2设置灯带颜色" title="17.2设置灯带颜色">17.2设置灯带颜色</a>
+</span>
+<!--span class="number">
+186
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-32" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+187
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-34" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+188
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-29" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+189
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-32" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+190
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#18.自诊断接口" title="18.自诊断接口">18.自诊断接口</a>
+</span>
+<!--span class="number">
+191
+</span-->
+<ul>
+<li><span class="title">
+<a href="#18.1获取自诊断结果" title="18.1获取自诊断结果">18.1获取自诊断结果</a>
+</span>
+<!--span class="number">
+192
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-33" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+193
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-35" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+194
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-30" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+195
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-33" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+196
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#19.获取电源状态接口" title="19.获取电源状态接口">19.获取电源状态接口</a>
+</span>
+<!--span class="number">
+197
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-34" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+198
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-36" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+199
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-31" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+200
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-34" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+201
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#20.获取机器人全局路径接口" title="20.获取机器人全局路径接口">20.获取机器人全局路径接口</a>
+</span>
+<!--span class="number">
+202
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-35" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+203
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-37" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+204
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-32" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+205
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-35" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+206
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#21.获取电梯状态接口" title="21.获取电梯状态接口">21.获取电梯状态接口</a>
+</span>
+<!--span class="number">
+207
+</span-->
+<ul>
+<li><span class="title">
+<a href="#指令：-36" title="指令：">指令：</a>
+</span>
+<!--span class="number">
+208
+</span-->
+</li>
+<li><span class="title">
+<a href="#参数：-38" title="参数：">参数：</a>
+</span>
+<!--span class="number">
+209
+</span-->
+</li>
+<li><span class="title">
+<a href="#接口说明：-33" title="接口说明：">接口说明：</a>
+</span>
+<!--span class="number">
+210
+</span-->
+</li>
+<li><span class="title">
+<a href="#示例：-36" title="示例：">示例：</a>
+</span>
+<!--span class="number">
+211
+</span-->
+</li>
+</ul>
+</li>
+<li><span class="title">
+<a href="#a.-状态代码返回说明（针对返回数据的status）" title="a. 状态代码返回说明（针对返回数据的status）">a. 状态代码返回说明（针对返回数据的status）</a>
+</span>
+<!--span class="number">
+212
+</span-->
+</li>
+<li><span class="title">
+<a href="#b.-错误消息返回说明（针对返回数据的error_message）" title="b. 错误消息返回说明（针对返回数据的error_message）">b. 错误消息返回说明（针对返回数据的error_message）</a>
+</span>
+<!--span class="number">
+213
+</span-->
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+</ul>
+<p></p><h2 id="各版本重要改动说明:"><a name="各版本重要改动说明:" href="#各版本重要改动说明:"></a>各版本重要改动说明:</h2><blockquote>
+<p><strong>v1.3.1 (2016-11-3)</strong></p>
+<ul>
+<li>添加部分解释性文字。</li><li><a href="#3.获取机器人当前全局状态">接口3 获取机器人当前全局状态</a>中 添加了字段”move_retry_times”用于反馈机器人移动中的内部重试次数。</li><li><a href="#5.获取marker点位列表">接口5 获取marker点位列表</a>中 修改了三个字段：name-&gt;marker_name, location-&gt;pose, type-&gt;key 。</li></ul>
+<p><strong>v1.4.0 (2017-1-6)</strong><br>针对软件0.4.0版本修改了以下内容：</p>
+<ul>
+<li>api指令前去掉<code>http://192.168.10.10:8808</code>字样。（原来的api格式仍可使用）</li><li>server端发出的json中增加”type”等字段, 用以区分packet类别。</li><li>增加接口使server能以一定频率发送”robot status”, 见<a href="#9.请求机器人实时数据">接口9 请求机器人实时数据</a>。</li><li>增加server端主动发出状态通知的功能，见<a href="#10.机器人主动通知">接口10 机器人主动通知</a>。</li></ul>
+<p><strong>v1.5.0 (2017-1-17)</strong></p>
+<ul>
+<li>增加<a href="#11.设置参数">接口11 设置参数</a>、<a href="#12.获取参数">接口12 获取参数</a>， 可以设置/获取机器人参数。(目前仅支持机器人最大行进速度参数)</li></ul>
+<p><strong>v1.6.0 (2017-5-29)</strong></p>
+<ul>
+<li><a href="#11.设置参数">接口11 设置参数</a>、<a href="#12.获取参数">接口12 获取参数</a>中，将<strong>机器人最大行进速度</strong>参数更改为<strong>机器人最大行进速度百分比</strong>。</li><li><a href="#3.获取机器人当前全局状态">接口3 获取机器人当前全局状态</a>中，增加软硬急停状态。</li><li>增加<a href="#13.无线网络接口">接口13 无线网络接口</a>、<a href="#14.地图接口">接口14 地图接口</a>、<a href="#15.关机重启接口">接口15 关机重启接口</a>。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>接口中新增电梯相关通知。</li></ul>
+<p><strong>v1.6.3 (2017-7-4)</strong></p>
+<ul>
+<li>增加<a href="#16.软件更新接口">接口16 软件更新接口</a>。</li></ul>
+<p><strong>v1.6.4 (2017-7-14)</strong></p>
+<ul>
+<li>更新<a href="#15.关机重启接口">接口15 关机重启接口</a>。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>中增加poweroff/急停/充电状态/回充电失败通知。</li></ul>
+<p><strong>v1.6.5 (2017-9-30)</strong></p>
+<ul>
+<li>增加<a href="#17.设置灯带接口">接口17 设置灯带接口</a>。</li></ul>
+<p><strong>v1.6.7 (2017-10-19)</strong></p>
+<ul>
+<li>合并[接口4 插入新的marker点位]和[接口5 获取marker点位列表] 到 <a href="#5.点位（marker）功能接口">接口5 点位(marker)功能接口</a></li><li>增加 [接口5.3 删除marker点位]</li><li>增加<a href="#4.获取机器人信息接口">接口4 获取机器人信息</a></li></ul>
+<p><strong>v1.6.8 (2018-04-09)</strong><br>针对软件0.7.3版本增加了以下内容：</p>
+<ul>
+<li><a href="#1.机器人移动功能">接口1 机器人移动功能</a>，接口调用成功后，在response里增加一个字段表示任务ID。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>,新增机器人移动时被困住的警告和移动重试通知的说明。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>,新增机器人触发姿态校正的通知。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>,新增电梯空间不够的情况下，乘坐下一趟电梯的通知。</li></ul>
+<p><strong>v1.7.1 (2018-05-29)</strong><br>针对软件0.7.4版本增加了以下内容：</p>
+<ul>
+<li><a href="#1.机器人移动功能">接口1 机器人移动功能</a>中新增<a href="#1.2多目标点移动">巡游接口</a>。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>,新增巡游通知, 新增闸机/电子门控制通知。新增data字段作为通知的补充信息。</li><li><a href="#5.2获取marker点位列表">接口5.2获取marker点位列表</a>, 增加参数可以按楼层查询点位。 增加<a href="#5.4获取点位个数">接口5.4获取点位个数</a>，增加<a href="#5.5获取点位摘要信息">接口5.5获取点位摘要信息</a>。</li></ul>
+<p><strong>v1.7.2 (2018-07-10)</strong><br>针对软件0.7.6版本增加了以下内容：</p>
+<ul>
+<li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>,新增两种机器人被困类型的通知。任务结束的通知里增加字段表示本次任务行走的距离。</li></ul>
+<p><strong>v1.7.3 (2018-07-27)</strong><br>针对软件0.7.7版本增加了以下内容：</p>
+<ul>
+<li><a href="#3.获取机器人当前全局状态">接口3 获取机器人当前全局状态</a>返回的状态中，增加”error_code”字段。</li><li><a href="#9.请求机器人实时数据">接口9 请求机器人实时数据</a>新增人检测数据接口。</li><li>增加<a href="#13.5获取机器人当前可用的无线列表详细信息">接口13.5 获取机器人当前可用的无线列表详细信息</a>。</li></ul>
+<p><strong>v1.7.4 (2018-08-17)</strong><br>针对软件0.7.8版本增加了以下内容：</p>
+<ul>
+<li><a href="#14.3获取当前地图">接口14.3 获取当前地图</a>中增加地图分辨率等信息。</li></ul>
+<p><strong>v1.7.5 (2018-09-04)</strong><br>针对软件0.7.9版本增加了以下内容：</p>
+<ul>
+<li>增加<a href="#19.获取电源状态接口">接口19获取电源状态接口</a>。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>,新增全局路径规划失败的通知。</li></ul>
+<p><strong>v1.7.6 (2018-09-07)</strong></p>
+<ul>
+<li>修改<a href="#11.设置参数">接口11 设置参数</a>中机器人行进速度比例参数取值范围,增加对参数的描述。</li></ul>
+<p><strong>v1.7.7 (2018-11-15)</strong></p>
+<ul>
+<li>增加<a href="#9.3获取机器人实时速度">9.3获取机器人实时速度</a>接口。</li><li>增加<a href="#5.6指定坐标标记marker">5.6指定坐标标记marker</a>接口。</li><li>增加<a href="#8.2指定坐标校正机器人位置">8.2指定坐标校正机器人位置</a>接口。</li></ul>
+<p><strong>v1.7.8 (2019-02-19)</strong></p>
+<ul>
+<li><a href="#1.机器人移动功能">接口1 机器人移动功能</a>中增加最大连续重试次数参数。</li><li><a href="#1.1单目标点移动">接口1.1 单目标点移动</a>中增加距离和角度容差参数。</li><li><a href="#3.获取机器人当前全局状态">接口3 获取机器人当前全局状态</a>中增加”running_status”字段。</li></ul>
+<p><strong>v1.7.9 (2019-06-15)</strong></p>
+<ul>
+<li><a href="#15.关机重启接口">接口15 关机重启接口</a>中增加参数设定延迟重启的时间。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>中增加等待电梯解锁的通知。</li><li><a href="#3.获取机器人当前全局状态">接口3 获取机器人当前全局状态</a>running_status字段中增加等待电梯解锁状态。</li></ul>
+<p><strong>v1.8.0 (2019-09-16)</strong></p>
+<ul>
+<li><a href="#1.1单目标点移动">接口1.1 单目标点移动</a>中增加角度偏移参数。</li><li><a href="#10.机器人主动通知">接口10 机器人主动通知</a>中增加软件服务即将关闭的通知。</li></ul>
+<p><strong>v1.8.1 (2019-10-26)</strong></p>
+<ul>
+<li>增加<a href="#16.4重启服务">16.4 重启服务</a>接口。</li><li>增加<a href="#20.获取机器人全局路径接口">20 获取机器人全局路径接口</a></li></ul>
+<p><strong>v1.8.2 (2020-03-16)</strong></p>
+<ul>
+<li>增加<a href="#21.获取电梯状态接口">21 获取电梯状态接口</a></li><li>更新<a href="#11.设置参数">接口11 设置参数</a>，增加设置机器人运行最大线速度、角速度接口。</li></ul>
+<p><strong>v1.8.3 (2020-07-16)</strong></p>
+<ul>
+<li><a href="#1.1单目标点移动">接口1.1 单目标点移动</a>中增加是否允许双向停靠参数，仅对支持双向行走的机器人生效。</li><li><a href="#1.1单目标点移动">接口1.1 单目标点移动</a>中增加让步停靠距离参数，提高某些场景下机器人完成任务的灵活性。</li><li>增加<a href="#17.2设置灯带颜色">17.2 设置灯带颜色</a>接口。</li></ul>
+</blockquote><h2 id="适用环境:"><a name="适用环境:" href="#适用环境:"></a>适用环境:</h2><ul>
+<li>基于TCP socket的网络通信。</li></ul><h2 id="协议形式和连接方式:"><a name="协议形式和连接方式:" href="#协议形式和连接方式:"></a>协议形式和连接方式:</h2><p><strong>协议形式</strong>：接口内容采用类url的字符串格式，接口反馈数据统一采用<strong>json</strong>格式，同级字段间<strong>没有</strong>前后关系，解析时请使用json的标准解析方式。</p><blockquote>
+<hr class="page">
+<p><strong>连接方式一：TCP连接</strong><br>网络设置：TCP客户端<br>服务器IP地址：</p>
+<blockquote>
+<p>a) 192.168.10.10(这个是底盘主机的静态IP地址，TCP客户端主机需要通过路由器等设备与底盘主机建立局域网连接，有相同网段192.168.10.*)<br>b) 底盘通过API连接上局域网WiFi, 然后通过API获取的局域网IP。</p>
+</blockquote>
+<p>服务器端口：31001</p>
+<hr class="page">
+<p><strong>连接方式二：串口连接</strong><br>需要底盘提供串口接口</p>
+<hr class="page">
+</blockquote><p><strong>建议使用socket连接方式，因为串口通信有一定概率使数据传输错误。</strong></p><h2 id="接口使用说明："><a name="接口使用说明：" href="#接口使用说明："></a>接口使用说明：</h2><p><strong>通用解释:</strong></p><ul>
+<li>通用参数”uuid”<ul>
+<li>如不做特殊说明，以下指令中均可携带uuid作为可选参数, server端执行完指令后在<strong>response</strong>中将其原样返回。</li></ul>
+</li><li>对于json中”type”字段的解释：<ul>
+<li>“response”  表示对一条指令的响应</li><li>“callback” 表示由server端以一定频率发送的数据</li><li>“notification” 表示由server端发起的主动通知</li></ul>
+</li></ul><blockquote>
+<p><strong>示例</strong>：<br>客户端发送字符串: “/api/move?marker=target_name&amp;uuid=123456”</p>
+<p><strong>返回</strong>:</p>
+<pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,      // package类型
+    &quot;command&quot;: &quot;/api/move&quot;,  // 源指令
+    &quot;error_message&quot;: &quot;&quot;,     // 错误消息
+    &quot;status&quot;: &quot;OK&quot;,          // 执行结果
+    &quot;uuid&quot;: &quot;123456&quot;         // 用户定义的uuid
+}
+</code></pre>">{
+    "type": "response",      // package类型
+    "command": "/api/move",  // 源指令
+    "error_message": "",     // 错误消息
+    "status": "OK",          // 执行结果
+    "uuid": "123456"         // 用户定义的uuid
+}
+</code></pre>
+</blockquote><h3 id="1.机器人移动功能"><a name="1.机器人移动功能" href="#1.机器人移动功能"></a>1.机器人移动功能</h3><h4 id="1.1单目标点移动"><a name="1.1单目标点移动" href="#1.1单目标点移动"></a>1.1单目标点移动</h4><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/move
+</code></pre>">/api/move
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>marker</td>
+<td>目标点位代号</td>
+<td>与location必选其一</td>
+<td>优先级低于location</td>
+<td></td>
+</tr>
+<tr>
+<td>location</td>
+<td>x&lt;地图中x轴坐标&gt;,y&lt;地图中y轴坐标&gt;,theta&lt;地图中相对theta值&gt;</td>
+<td>与marker必选其一</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>max_continuous_retries</td>
+<td>原地最大连续重试次数（机器人原地不动时，重试次数超过此值则任务失败)</td>
+<td>可选</td>
+<td>默认30次</td>
+<td>0.7.11</td>
+</tr>
+<tr>
+<td>distance_tolerance</td>
+<td>距离容差,类型float,单位米。(当目标位置被占据等原因无法到达时，机器人移动到目标此距离之内也算任务成功。)</td>
+<td>可选</td>
+<td>默认值跟机器人型号相关</td>
+<td>0.7.12</td>
+</tr>
+<tr>
+<td>theta_tolerance</td>
+<td>角度容差，类型float，单位弧度。(到达目标点位后，角度小于此值后任务成功)</td>
+<td>可选</td>
+<td>默认值跟机器人型号相关</td>
+<td>0.7.12</td>
+</tr>
+<tr>
+<td>angle_offset</td>
+<td>到达位置后的角度偏移, 例如使用marker=m1发送任务时,会以m1的角度+angle_offset的角度作为最终方向执行任务.</td>
+<td>可选</td>
+<td>单位弧度, 范围[-3.14, 3.14], 默认0</td>
+<td>0.8.2</td>
+</tr>
+<tr>
+<td>yaw_goal_reverse_allowed</td>
+<td>双向停靠控制参数，取值1或0或-1。对于<strong>双向行走</strong>的机器人，此参数用于机器人停靠到点位时，是否允许尾部跟点位方向一致。</td>
+<td>可选</td>
+<td>1:允许；0:不允许； 其他: 使用默认</td>
+<td>0.8.7</td>
+</tr>
+<tr>
+<td>occupied_tolerance</td>
+<td>让步停靠距离参数，单位米。 当目标点位被占用时，设置此参数机器人会直接在点位附近停靠以完成任务，而不再尝试移动到点位上。距离以占用物边缘至机器人中心计算。</td>
+<td>可选</td>
+<td>[0.1, )</td>
+<td>0.8.7</td>
+</tr>
+</tbody>
+</table><h5 id="接口描述："><a name="接口描述：" href="#接口描述："></a>接口描述：</h5><p>可使机器人从当前位置移动至地图中已经标定的某个目标点。</p><blockquote>
+<p><strong>协议中对于移动指令部分包括两大主要的形式：</strong></p>
+<ul>
+<li>对于需要使机器人在运动过程中使用自动导航和避障功能的，请使用此接口；</li><li>如果需要使用诸如手柄遥控功能的，请使用<a href="#6.机器人直接控制指令">接口6</a>，会直接操控机器人两轮的速度;</li></ul>
+</blockquote><p><strong>在使用此接口之前还有必要的扫图工作需要使用者提前安排（云迹提供一套通过局域网连接机器人，然后登入浏览器进行扫图的方案，具体操作参考《WATER（水滴）用户使用手册》）。</strong><br>参数中的location的坐标是相对于“地图”坐标系的，由于直接调用(x、y、theta)在使用中不够直观和方便，云迹提供“事先标锚点，而后使机器人重返锚点”的工作形式。之后“锚点”统一用marker代称，设置和查询已设锚点的方式见<a href="#4.插入新的marker点位">接口4</a>、<a href="#5.获取marker点位列表">接口5</a>。</p><p>机器人采用自动导航和避障的过程中，机器人会自动规划路径和调节速度，过程中不需要操作者干预。操作者可以监听robot_status(机器人整体和行进状态)，或者等待相应的notification，以了解任务完成情况和整机状态。</p><h5 id="示例:"><a name="示例:" href="#示例:"></a>示例:</h5><p><strong>发送:</strong></p><pre><code data-origin="<pre><code>/api/move?marker=target_name
+// 调用移动接口，移动至代号为&quot;target_name&quot;的目标点
+/api/move?location=15.0,4.0,1.5707963
+// 调用移动接口，移动至location(15.0, 4.0, pai/2)的目标点
+</code></pre>">/api/move?marker=target_name
+// 调用移动接口，移动至代号为"target_name"的目标点
+/api/move?location=15.0,4.0,1.5707963
+// 调用移动接口，移动至location(15.0, 4.0, pai/2)的目标点
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/move&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;task_id&quot;: &quot;xxx&quot; // （软件版本0.7.3之后新增） 32个字节的uuid，例如：436253D1D6284ACC984620CCB94EB5E5
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/move"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">task_id</span>": <span class="hljs-value"><span class="hljs-string">"xxx"</span> // （软件版本<span class="hljs-number">0.7</span>.3之后新增） <span class="hljs-number">32</span>个字节的uuid，例如：<span class="hljs-number">436253</span>D1D6284ACC984620CCB94EB5E5
+</span>}
+</code></pre><h4 id="1.2多目标点移动"><a name="1.2多目标点移动" href="#1.2多目标点移动"></a>1.2多目标点移动</h4><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/move
+</code></pre>">/api/move
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>markers</td>
+<td>想要巡游的点位列表，点位名称之间用英文逗号分开</td>
+<td>必选</td>
+<td>不能少于两个点位，不支持跨楼层</td>
+<td></td>
+</tr>
+<tr>
+<td>count</td>
+<td>巡游的次数，所有点位走过一遍之后计为一次</td>
+<td>可选</td>
+<td>不选时为默认一次，-1表示无限循环。</td>
+<td></td>
+</tr>
+<tr>
+<td>distance_tolerance</td>
+<td>点位到达时的容差，表示靠近点位多少距离时继续下一个点位。</td>
+<td>可选</td>
+<td>默认0.5(米),最小0.5</td>
+<td></td>
+</tr>
+<tr>
+<td>max_continuous_retries</td>
+<td>原地最大连续重试次数（机器人原地不动时，重试次数超过此值则去<strong>当前</strong>巡游点位任务失败)</td>
+<td>可选</td>
+<td>默认5次</td>
+<td>0.7.11</td>
+</tr>
+</tbody>
+</table><h5 id="接口描述："><a name="接口描述：" href="#接口描述："></a>接口描述：</h5><p>作为<a href="#1.1单目标点移动">接口1.1单目标点移动</a>的扩展，实现了多个点之间<strong>不间断</strong>的循环移动。考虑从充电桩出发的情况，不支持多楼层间移动，v0.7.11版本后支持回充电桩。<br>在整个巡游过程中任务状态都是”running”, 在巡游开始和结束时会有巡游通知发出，在点位间会有普通移动通知发出。单个巡游目标点移动失败后，会继续去往下个目标点。<br>结束巡游指令跟结束单点移动任务指令一样，都是通过<a href="#2.移动取消功能">接口2 移动取消功能</a>。</p><h5 id="示例:"><a name="示例:" href="#示例:"></a>示例:</h5><p><strong>发送:</strong></p><pre><code data-origin="<pre><code>/api/move?markers=m1,m2,m3&amp;amp;distance_tolerance=1.0&amp;amp;count=-1
+</code></pre>">/api/move?markers=m1,m2,m3&amp;distance_tolerance=1.0&amp;count=-1
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/move&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;task_id&quot;: &quot;xxx&quot; // （软件版本0.7.3之后新增） 32个字节的uuid，例如：436253D1D6284ACC984620CCB94EB5E5
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/move"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">task_id</span>": <span class="hljs-value"><span class="hljs-string">"xxx"</span> // （软件版本<span class="hljs-number">0.7</span>.3之后新增） <span class="hljs-number">32</span>个字节的uuid，例如：<span class="hljs-number">436253</span>D1D6284ACC984620CCB94EB5E5
+</span>}
+</code></pre><h3 id="2.移动取消功能"><a name="2.移动取消功能" href="#2.移动取消功能"></a>2.移动取消功能</h3><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/move/cancel
+</code></pre>">/api/move/cancel
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><p>N/A</p><h4 id="接口描述："><a name="接口描述：" href="#接口描述："></a>接口描述：</h4><p>使机器人主动放弃当前正在执行的移动任务，成功取消后可使机器人进入新的待命状态。<br>在机器人执行<a href="#1.机器人移动功能">接口1</a>-机器人移动命令过程中，如果需要终止机器人当前的移动状态，可以调用此接口。机器人会在接收“移动取消”命令之后，原地停止，等待再次的move指令。</p><h4 id="示例:"><a name="示例:" href="#示例:"></a>示例:</h4><p><strong>发送:</strong></p><pre><code data-origin="<pre><code>/api/move/cancel
+// 取消当前正在进行的移动指令
+</code></pre>">/api/move/cancel
+// 取消当前正在进行的移动指令
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/move/cancel&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/move/cancel"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><h3 id="3.获取机器人当前全局状态"><a name="3.获取机器人当前全局状态" href="#3.获取机器人当前全局状态"></a>3.获取机器人当前全局状态</h3><p>本接口作为兼容用户以前的软件版本保留， 新用户推荐使用<a href="#9.请求机器人实时数据">接口9</a>——请求机器人实时数据。</p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/robot_status
+</code></pre>">/api/robot_status
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><p>N/A</p><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>获取机器人当前全局状态，包括移动任务的状态。<br>除配合<a href="#1.机器人移动功能">接口1</a>周期监听move的反馈之外，也可从此接口中监听机器人整机的其他信息，包括“是否处于充电状态”、“是否处于急停状态”、“所剩电池点量百分比”、“当前相对于地图的位置”、“当前楼层”，具体见示例。<br>建议调用频率为1-2HZ，可以实时监控任务状态，作为流程控制的逻辑判断。</p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送:</strong></p><pre><code data-origin="<pre><code>/api/robot_status
+// 获得机器人当前的全局状态
+</code></pre>">/api/robot_status
+// 获得机器人当前的全局状态
+</code></pre><p><strong>成功时返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/robot_status&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;move_target&quot;: &quot;target_name&quot;, // 移动指令指定的目标点位名称
+        &quot;move_status&quot;: &quot;running&quot;, // 移动指令的执行状态。详细解释见后边
+        &quot;running_status&quot;: &quot;running&quot;, // v0.7.12新增，移动任务的具体状态， 详细见后面解释
+        &quot;move_retry_times&quot;: 3, //此次数每增加1，表示机器人进行了新一轮的路径重试；路径规划一次性成功此值默认为0
+
+        &quot;charge_state&quot;: bool, //true-&amp;gt;充电中状态。false-&amp;gt;未充电状态。
+        &quot;soft_estop_state&quot;: bool, // 通过API接口设置的软急停状态, true-&amp;gt;急停中，false-&amp;gt;非急停中
+        &quot;hard_estop_state&quot;: bool, // 通过硬件急停按钮设置的硬急停状态, true-&amp;gt;急停中，false-&amp;gt;非急停中
+        &quot;estop_state&quot;: bool,  // hard_estop_state || sofpt_estop_state, true-&amp;gt;急停中，false-&amp;gt;非急停中
+        &quot;power_percent&quot;: 100, //电量百分比，单位：%
+        &quot;current_pose&quot;: {
+            &quot;x&quot;: 11.0,     // 单位：m
+            &quot;y&quot;: 11.0,       // 单位：m
+            &quot;theta&quot;: 0.5, //单位：rad
+        }
+        &quot;current_floor&quot;: 16,
+        &quot;error_code&quot;: &quot;00000000&quot;   // v0.7.7新增，16进制错误码，总共8个字节表示，非0表示机器人异常
+    }
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/robot_status",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results": {
+        "move_target": "target_name", // 移动指令指定的目标点位名称
+        "move_status": "running", // 移动指令的执行状态。详细解释见后边
+        "running_status": "running", // v0.7.12新增，移动任务的具体状态， 详细见后面解释
+        "move_retry_times": 3, //此次数每增加1，表示机器人进行了新一轮的路径重试；路径规划一次性成功此值默认为0
+
+        "charge_state": bool, //true-&gt;充电中状态。false-&gt;未充电状态。
+        "soft_estop_state": bool, // 通过API接口设置的软急停状态, true-&gt;急停中，false-&gt;非急停中
+        "hard_estop_state": bool, // 通过硬件急停按钮设置的硬急停状态, true-&gt;急停中，false-&gt;非急停中
+        "estop_state": bool,  // hard_estop_state || sofpt_estop_state, true-&gt;急停中，false-&gt;非急停中
+        "power_percent": 100, //电量百分比，单位：%
+        "current_pose": {
+            "x": 11.0,     // 单位：m
+            "y": 11.0,       // 单位：m
+            "theta": 0.5, //单位：rad
+        }
+        "current_floor": 16,
+        "error_code": "00000000"   // v0.7.7新增，16进制错误码，总共8个字节表示，非0表示机器人异常
+    }
+}
+</code></pre><p><strong>失败时返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/robot_status&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;UNKNOWN_ERROR&quot;,
+    &quot;error_message&quot;: &quot;Can't catch current robot status&quot;
+    &quot;results&quot;
+}
+失败时请检查地图是否设置正确或者硬件是否有故障。
+</code></pre>">{
+    "type": "response",
+    "command": "/api/robot_status",
+    "uuid": "",
+    "status": "UNKNOWN_ERROR",
+    "error_message": "Can't catch current robot status"
+    "results"
+}
+失败时请检查地图是否设置正确或者硬件是否有故障。
+</code></pre><h4 id="对于移动任务相关字段的解释："><a name="对于移动任务相关字段的解释：" href="#对于移动任务相关字段的解释："></a>对于移动任务相关字段的解释：</h4><p>以下字段对应于<a href="#1.机器人移动功能">机器人移动功能</a>指令的状态查询。</p><ul>
+<li><p><strong>move_target</strong>表示移动指令指定的点位名称。<br><em>当以”location”调用移动接口时， 此字段值为空</em><br><em>当调用巡游接口时，此字段为当前正在前往的点位名称</em></p>
+</li><li><p><strong>move_status</strong>表示当前机器人去<strong>move_target</strong>的执行状态。。其取值及解释如下。</p>
+<table>
+<thead>
+<tr>
+<th>字段值</th>
+<th>解释  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>idle</td>
+<td>表示机器人服务启动后尚未收到任何移动指令。</td>
+</tr>
+<tr>
+<td>running</td>
+<td>表示机器人正在去往<strong>move_target</strong>,此时会拒绝接受新的移动指令。</td>
+</tr>
+<tr>
+<td>succeeded</td>
+<td>表示移动任务已经成功完成。</td>
+</tr>
+<tr>
+<td>failed</td>
+<td>表示移动任务失败了。</td>
+</tr>
+<tr>
+<td>canceled</td>
+<td>表示移动任务被取消了。</td>
+</tr>
+</tbody>
+</table>
+</li><li><p><strong>running_status</strong>表示当前机器人移动任务的具体状态, 底层实现是由通知触发, 在不能确保一定能收到通知的情况下, 可以以此字段作为判断条件。</p>
+<table>
+<thead>
+<tr>
+<th>字段值</th>
+<th>对应move_status</th>
+<th>解释</th>
+<th>从以下版本开始</th>
+<th>特别说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>idle</td>
+<td>idle/suceeded/failed/canceld</td>
+<td>机器人当前空闲,可以接受新的移动任务。</td>
+<td>v0.7.12</td>
+</tr>
+<tr>
+<td>leave_charging_pile</td>
+<td>running</td>
+<td>正在离开充电桩。</td>
+<td>v0.7.12</td>
+</tr>
+<tr>
+<td>dock_to_charging_pile</td>
+<td>running</td>
+<td>正在自动停靠到充电桩上。</td>
+<td>v0.7.12</td>
+</tr>
+<tr>
+<td>goto_lift</td>
+<td>running</td>
+<td>正在去往电梯。</td>
+<td>v0.7.12</td>
+</tr>
+<tr>
+<td>wait_lift_unlock</td>
+<td>running</td>
+<td>等待电梯解锁。</td>
+<td>v0.8.1</td>
+<td>当有多台机器人需要乘坐同一部电梯时会触发此状态。</td>
+</tr>
+<tr>
+<td>wait_lift_outside</td>
+<td>running</td>
+<td>正在电梯外等候电梯。</td>
+<td>v0.7.12</td>
+</tr>
+<tr>
+<td>enter_lift</td>
+<td>running</td>
+<td>正在进入电梯。</td>
+<td>v0.7.12</td>
+<td>此时最好不要随便调用<a href="#2.移动取消功能">移动取消功能</a>，以免流程出错。</td>
+</tr>
+<tr>
+<td>avoid_lift</td>
+<td>running</td>
+<td>进入电梯失败后正在避让电梯。</td>
+<td>v0.7.12</td>
+<td>此时最好不要随便调用<a href="#2.移动取消功能">移动取消功能</a>，以免流程出错。</td>
+</tr>
+<tr>
+<td>take_lift</td>
+<td>running</td>
+<td>正在乘坐电梯。</td>
+<td>v0.7.12</td>
+<td>此时最好不要随便调用<a href="#2.移动取消功能">移动取消功能</a>，以免流程出错。</td>
+</tr>
+<tr>
+<td>exit_lift</td>
+<td>running</td>
+<td>正在出电梯。</td>
+<td>v0.7.12</td>
+<td>此时最好不要随便调用<a href="#2.移动取消功能">移动取消功能</a>，以免流程出错。</td>
+</tr>
+<tr>
+<td>back_to_lift</td>
+<td>running</td>
+<td>出电梯失败正在回到电梯。</td>
+<td>v0.7.12</td>
+<td>此时最好不要随便调用<a href="#2.移动取消功能">移动取消功能</a>，以免流程出错。</td>
+</tr>
+<tr>
+<td>running</td>
+<td>running</td>
+<td>其它非关键性状态</td>
+<td>v0.7.12 </td>
+</tr>
+</tbody>
+</table>
+</li></ul><h3 id="4.获取机器人信息接口"><a name="4.获取机器人信息接口" href="#4.获取机器人信息接口"></a>4.获取机器人信息接口</h3><p><strong>本接口至少需要软件版本0.6.3.3</strong></p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/robot_info
+</code></pre>">/api/robot_info
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><p>N/A</p><h4 id="指令说明："><a name="指令说明：" href="#指令说明："></a>指令说明：</h4><p>调用接口可以获取机器人的一些基本信息。</p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/robot_info
+</code></pre>">/api/robot_info
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/robot_info&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;product_id&quot;: &quot;WATER-xxxx-xxxxx&quot;  // 机器人编号
+     }
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/robot_info"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">results</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">product_id</span>": <span class="hljs-value"><span class="hljs-string">"WATER-xxxx-xxxxx"</span>  // 机器人编号
+     </span>}
+</span>}
+</code></pre><h4 id="返回结果字段解释："><a name="返回结果字段解释：" href="#返回结果字段解释："></a>返回结果字段解释：</h4><table>
+<thead>
+<tr>
+<th>结果字段</th>
+<th>解释</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>product_id</td>
+<td>产品编号</td>
+<td></td>
+<td>0.6.3.3</td>
+</tr>
+</tbody>
+</table><h3 id="5.点位（marker）功能接口"><a name="5.点位（marker）功能接口" href="#5.点位（marker）功能接口"></a>5.点位（marker）功能接口</h3><h4 id="5.1在机器人当前位置标记marker"><a name="5.1在机器人当前位置标记marker" href="#5.1在机器人当前位置标记marker"></a>5.1在机器人当前位置标记marker</h4><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/markers/insert
+</code></pre>">/api/markers/insert
+</code></pre><h5 id="指令说明："><a name="指令说明：" href="#指令说明："></a>指令说明：</h5><p>在机器人的当前位置和楼层标记锚点(marker)。</p><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>点位名字</td>
+<td>必选</td>
+<td>如果name已经标记过，则更新坐标。</td>
+</tr>
+<tr>
+<td>type</td>
+<td>点位类型：0(一般点位)，11（充电桩）。</td>
+<td>可选</td>
+<td>默认为0</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>在当前地图中标记点位，让机器人记住这个点位（marker）。<br>调用此接口时，机器人会捕捉当前相对于地图坐标系的(x,y,theta)，并自动把捕捉到的锚点位置，存储在机器人的锚点列表中，以随时响应move的调用。如果不使用充电功能，接口中的type可以不设置。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/markers/insert?name=205_room
+//调用该接口，将机器人当前位置设为marker点位，名字为205_room。默认为1层一般点位。
+/api/markers/insert?name=charge_dock_2&amp;amp;type=11
+//调用该接口，将机器人当前位置设为marker点位，名字为charge_dock_2，类型为充电桩。
+</code></pre>">/api/markers/insert?name=205_room
+//调用该接口，将机器人当前位置设为marker点位，名字为205_room。默认为1层一般点位。
+/api/markers/insert?name=charge_dock_2&amp;type=11
+//调用该接口，将机器人当前位置设为marker点位，名字为charge_dock_2，类型为充电桩。
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>操作成功时返回：
+{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/insert&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">操作成功时返回：
+{
+    "type": "response",
+    "command": "/api/markers/insert",
+    "uuid": "",
+    "status": "OK",
+    "error_message": ""
+}
+</code></pre><h4 id="5.2获取marker点位列表"><a name="5.2获取marker点位列表" href="#5.2获取marker点位列表"></a>5.2获取marker点位列表</h4><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/markers/query_list
+</code></pre>">/api/markers/query_list
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>floor</td>
+<td>想要查询的楼层</td>
+<td>可选</td>
+<td>如果不选则返回所有楼层的点位信息</td>
+<td>0.7.4</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取机器人在当前地图中的所有点位(marker)信息, 每个点位信息中包括”点位名称”、”楼层”、”点位坐标”、”点位方向”和”点位类型”。<br><strong>其中orientation以四元数的形式保存点位的方向，可以转化成前文阐述的坐标系中的theta</strong></p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/markers/query_list
+</code></pre>">/api/markers/query_list
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/query_list&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;:{
+        &quot;meeting_room&quot;: {
+            &quot;floor&quot;: 1, 
+            &quot;pose&quot;: {
+                &quot;orientation&quot;: {
+                    &quot;w&quot;: -0.899999976158142, 
+                    &quot;x&quot;: 0, 
+                    &quot;y&quot;: 0, 
+                    &quot;z&quot;: -0.430000007152557
+                }, 
+                &quot;position&quot;: {
+                    &quot;x&quot;: -8.57999992370605, 
+                    &quot;y&quot;: 6.3600001335144, 
+                    &quot;z&quot;: 0
+                }
+            }, 
+            &quot;marker_name&quot;: &quot;meeting_room&quot;, 
+            &quot;key&quot;: 0
+        }, 
+        ... // 其它点位信息
+    }
+}
+// &quot;marker_name&quot;表示点位名称。&quot;key&quot;表示点位类型：0(一般点位)，11（充电桩）。&quot;floor&quot;表示点位所属楼层。&quot;pose&quot;表示具体坐标点。
+</code></pre>">{
+    "type": "response",
+    "command": "/api/markers/query_list",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results":{
+        "meeting_room": {
+            "floor": 1, 
+            "pose": {
+                "orientation": {
+                    "w": -0.899999976158142, 
+                    "x": 0, 
+                    "y": 0, 
+                    "z": -0.430000007152557
+                }, 
+                "position": {
+                    "x": -8.57999992370605, 
+                    "y": 6.3600001335144, 
+                    "z": 0
+                }
+            }, 
+            "marker_name": "meeting_room", 
+            "key": 0
+        }, 
+        ... // 其它点位信息
+    }
+}
+// "marker_name"表示点位名称。"key"表示点位类型：0(一般点位)，11（充电桩）。"floor"表示点位所属楼层。"pose"表示具体坐标点。
+</code></pre><p><strong>点位不存在时返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/query_list&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: null
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/markers/query_list"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">results</span>": <span class="hljs-value"><span class="hljs-literal">null</span>
+</span>}
+</code></pre><h4 id="5.3删除marker点位"><a name="5.3删除marker点位" href="#5.3删除marker点位"></a>5.3删除marker点位</h4><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/markers/delete
+</code></pre>">/api/markers/delete
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+<th>从以下版本开始 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>点位名字</td>
+<td>必选</td>
+<td></td>
+<td>0.6.3.4</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>删除已经标记的marker点位，如果点位名称不存在则返回失败。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/markers/delete?name=205_room
+</code></pre>">/api/markers/delete?name=205_room
+</code></pre><p><strong>成功时返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/delete&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/markers/delete"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><p><strong>失败时返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/delete&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;INVALID_REQUEST&quot;,
+    &quot;error_message&quot;: &quot;Marker Not Found&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/markers/delete"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"INVALID_REQUEST"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">"Marker Not Found"</span>
+</span>}
+</code></pre><h4 id="5.4获取点位个数"><a name="5.4获取点位个数" href="#5.4获取点位个数"></a>5.4获取点位个数</h4><p><strong>本接口至少需要软件版本v0.7.4</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/markers/count
+</code></pre>">/api/markers/count
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取当前地图中的点位数量。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/markers/count
+</code></pre>">/api/markers/count
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/count&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+      &quot;count&quot;: 10  // 当前地图中点位的数量
+    }
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/markers/count"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">results</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">10</span>  // 当前地图中点位的数量
+    </span>}
+</span>}
+</code></pre><h4 id="5.5获取点位摘要信息"><a name="5.5获取点位摘要信息" href="#5.5获取点位摘要信息"></a>5.5获取点位摘要信息</h4><p><strong>本接口至少需要软件版本v0.7.4</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/markers/query_brief
+</code></pre>">/api/markers/query_brief
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>查询当前地图所有点位的摘要信息，此接口返回比<a href="#5.2获取marker点位列表">5.2获取marker点位列表</a>更加简洁的点位信息。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/markers/query_brief
+</code></pre>">/api/markers/query_brief
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/query_brief&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+      &quot;meeting_room&quot;: &quot;0-1&quot;, // 点位名称：点位类型-楼层 
+      &quot;205_room&quot;: &quot;0-1&quot;,
+      ... // 其它点位信息
+     }
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/markers/query_brief",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results": {
+      "meeting_room": "0-1", // 点位名称：点位类型-楼层 
+      "205_room": "0-1",
+      ... // 其它点位信息
+     }
+}
+</code></pre><h4 id="5.6指定坐标标记marker"><a name="5.6指定坐标标记marker" href="#5.6指定坐标标记marker"></a>5.6指定坐标标记marker</h4><p><strong>本接口至少需要软件版本v0.7.11</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/markers/insert_by_pose
+</code></pre>">/api/markers/insert_by_pose
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>点位名字</td>
+<td>必选</td>
+<td>如果name已经存在，则更新坐标。</td>
+</tr>
+<tr>
+<td>type</td>
+<td>点位类型：0(一般点位)，11（充电桩）。</td>
+<td>可选</td>
+<td>默认为0</td>
+</tr>
+<tr>
+<td>floor</td>
+<td>楼层</td>
+<td>可选</td>
+<td>默认为机器人当前楼层,如果楼层不存在则会返回错误.</td>
+</tr>
+<tr>
+<td>x</td>
+<td>地图坐标x</td>
+<td>必选</td>
+<td>-</td>
+</tr>
+<tr>
+<td>y</td>
+<td>地图坐标y</td>
+<td>必选</td>
+<td>-</td>
+</tr>
+<tr>
+<td>theta</td>
+<td>点位的方向</td>
+<td>必选</td>
+<td>取值范围[-π, π]</td>
+</tr>
+</tbody>
+</table><blockquote>
+<p>theta与四元数转换关系C++ 示例:<br>假设四元数表示的方向为: o{x: 0, y:0, z: -0.430000007152557, w:-0.899999976158142}</p>
+<pre><code data-origin="<pre><code>double theta = 2*atan2(o.z, o.w)
+if (theta &amp;gt; M_PI &amp;amp;&amp;amp; theta &amp;lt;= (2*M_PI))
+{
+    theta -= 2*M_PI;
+}
+else if(theta &amp;lt; (-1*M_PI) &amp;amp;&amp;amp; theta &amp;gt;= (-2*M_PI))
+{
+    theta += 2*M_PI;
+}
+</code></pre>">double theta = 2*atan2(o.z, o.w)
+if (theta &gt; M_PI &amp;&amp; theta &lt;= (2*M_PI))
+{
+    theta -= 2*M_PI;
+}
+else if(theta &lt; (-1*M_PI) &amp;&amp; theta &gt;= (-2*M_PI))
+{
+    theta += 2*M_PI;
+}
+</code></pre></blockquote><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>在指定位置添加marker.</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/markers/insert_by_pose?name=205_room&amp;amp;x=-0.1&amp;amp;y=1.0&amp;amp;theta=0.0&amp;amp;floor=2&amp;amp;type=0
+//调用该接口，在位置(0.1,1.0), 方向(0.0), 楼层为2的位置添加名字为205_room的marker, 类型为一般点位。
+</code></pre>">/api/markers/insert_by_pose?name=205_room&amp;x=-0.1&amp;y=1.0&amp;theta=0.0&amp;floor=2&amp;type=0
+//调用该接口，在位置(0.1,1.0), 方向(0.0), 楼层为2的位置添加名字为205_room的marker, 类型为一般点位。
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>操作成功时返回：
+{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/markers/insert_by_pose&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">操作成功时返回：
+{
+    "type": "response",
+    "command": "/api/markers/insert_by_pose",
+    "uuid": "",
+    "status": "OK",
+    "error_message": ""
+}
+</code></pre><h3 id="6.机器人直接控制指令"><a name="6.机器人直接控制指令" href="#6.机器人直接控制指令"></a>6.机器人直接控制指令</h3><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/joy_control
+</code></pre>">/api/joy_control
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>angular_velocity</td>
+<td>角速度</td>
+<td>必选</td>
+<td></td>
+</tr>
+<tr>
+<td>linear_velocity</td>
+<td>线速度</td>
+<td>必选</td>
+<td></td>
+</tr>
+</tbody>
+</table><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>对机器人进行部分的直接控制，如自转或停止（此控制优先级高于move指令），返回succeeded表示机器人已成功接收并开始运行此指令</p><blockquote>
+<p><strong><em><a href="#1.机器人移动功能">接口1</a>已提供了机器人带路径规划和自动避障的移动功能，相对而言，此接口提供人工控制的遥控移动功能。遥控的方式为控制机器人行进的线速度和角速度，其单位分别为m/s和rad/s；通过两值设置可以自行控制转弯半径等机器人运动表现形式</em></strong></p>
+<hr class="page">
+<p><strong><em>机器人运动方向和角速度、线速度符号说明如下：</em></strong></p>
+<table>
+<thead>
+<tr>
+<th>线速度</th>
+<th>角速度</th>
+<th>机器人行进表现</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>正</td>
+<td>机器人原地左转</td>
+<td>机器人角速度设值范围为 (-1.0 ~ 1.0)rad/s</td>
+</tr>
+<tr>
+<td>0</td>
+<td>负</td>
+<td>机器人原地右转</td>
+<td></td>
+</tr>
+<tr>
+<td>正</td>
+<td>0</td>
+<td>机器人前进</td>
+<td>机器人线速度设值范围为 (-0.5 ~ 0.5)m/s</td>
+</tr>
+<tr>
+<td>负</td>
+<td>0</td>
+<td>机器人后退</td>
+<td></td>
+</tr>
+<tr>
+<td>正</td>
+<td>正</td>
+<td>机器人前进且左转</td>
+<td></td>
+</tr>
+<tr>
+<td>正</td>
+<td>负</td>
+<td>机器人前进且右转</td>
+<td></td>
+</tr>
+<tr>
+<td>负</td>
+<td>正</td>
+<td>机器人倒车且左转</td>
+<td></td>
+</tr>
+<tr>
+<td>负</td>
+<td>负</td>
+<td>机器人倒车且右转</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>如果传入的参数超出限定范围，模块内部会按最大预设工作</em></strong></p>
+<hr class="page">
+<p><strong><em>从安全方面考虑，单个命令的持续时间为0.5秒，但输入频率可以大于2Hz。连续的指令发送可使机器人运动连贯，比如把命令映射到手柄控制键位上</em></strong></p>
+</blockquote><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/joy_control?angular_velocity=0.5&amp;amp;linear_velocity=0.2  
+// 调用移动接口,机器人以角速度0.5rad/s逆时针转动，同时以线速度0.2m/s前进。
+</code></pre>">/api/joy_control?angular_velocity=0.5&amp;linear_velocity=0.2  
+// 调用移动接口,机器人以角速度0.5rad/s逆时针转动，同时以线速度0.2m/s前进。
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/joy_control&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/joy_control"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><h3 id="7.机器人急停控制指令"><a name="7.机器人急停控制指令" href="#7.机器人急停控制指令"></a>7.机器人急停控制指令</h3><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/estop
+</code></pre>">/api/estop
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flag</td>
+<td>进入或退出急停模式</td>
+<td>必选</td>
+<td>true/false</td>
+</tr>
+</tbody>
+</table><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>使机器人进入自由停止模式，机器人可被推动。</p><blockquote>
+<p><strong>机器人硬件平台提供了一个急停控制按钮，按动此按钮可使机器人进行自动停车状态。除此硬件按钮之外，软件接口等价的提供一个急停控制指令，软件开启急停模式之后，也可使机器人进入自由停止模式。需要注意的是，软件和硬件的急停接口是分别控制机器人急停状态的，不可以相互解锁。</strong></p>
+</blockquote><p><strong>注：软件重启或者整机重启后将重置急停状态为False(v0.6.4版本后)</strong></p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/estop?flag=true  //进入急停模式
+/api/estop?flag=false  //退出急停模式
+</code></pre>">/api/estop?flag=true  //进入急停模式
+/api/estop?flag=false  //退出急停模式
+</code></pre><p><strong>返回：</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/estop&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/estop"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><h3 id="8.校正机器人当前位置"><a name="8.校正机器人当前位置" href="#8.校正机器人当前位置"></a>8.校正机器人当前位置</h3><p>当机器人位置在地图中已经偏移时,为了保证机器人运行稳定, 需要帮助机器人校正位置.<br><strong>注:此类接口在开发过程中一般用不到，特别是在移动任务过程中无需调用此接口校正位置。普通情况下使用前端提供的校正功能即可</strong></p><h4 id="8.1指定marker校正机器人位置"><a name="8.1指定marker校正机器人位置" href="#8.1指定marker校正机器人位置"></a>8.1指定marker校正机器人位置</h4><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/position_adjust
+</code></pre>">/api/position_adjust
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>marker</td>
+<td>用以校定位置的marker名</td>
+<td>必选</td>
+<td>已经标定的marker点</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>使用此接口可将机器人位置校正到marker所标记的位置。 使用时可先将机器人推至marker标记的位置，然后用调用此接口进行位置校正。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/position_adjust?marker=001
+//告知机器人当前处于代号为001的marker点位上
+</code></pre>">/api/position_adjust?marker=001
+//告知机器人当前处于代号为001的marker点位上
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/position_adjust&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/position_adjust"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><h4 id="8.2指定坐标校正机器人位置"><a name="8.2指定坐标校正机器人位置" href="#8.2指定坐标校正机器人位置"></a>8.2指定坐标校正机器人位置</h4><p><strong>本接口至少需要软件版本v0.7.11</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/position_adjust_by_pose
+</code></pre>">/api/position_adjust_by_pose
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>坐标x</td>
+<td>必选</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>y</td>
+<td>坐标y</td>
+<td>必选</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>theta</td>
+<td>方向</td>
+<td>必选</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>floor</td>
+<td>楼层</td>
+<td>可选</td>
+<td>当前地图中存在的楼层</td>
+<td>不填则默认为机器人当前楼层</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>使用此接口可将机器人位置校正到指定坐标的位置。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/position_adjust_by_pose?x=0.3&amp;amp;y=0.3&amp;amp;theta=2.6
+// 将机器人位置校正到指定坐标
+</code></pre>">/api/position_adjust_by_pose?x=0.3&amp;y=0.3&amp;theta=2.6
+// 将机器人位置校正到指定坐标
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/position_adjust_by_pose&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/position_adjust_by_pose"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><h3 id="9.请求机器人实时数据"><a name="9.请求机器人实时数据" href="#9.请求机器人实时数据"></a>9.请求机器人实时数据</h3><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/request_data
+</code></pre>">/api/request_data
+</code></pre><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>请求server端以一定频率发送topic类型的数据。当请求成功后，server端会以一定频率发送数据给请求的client。</p><h4 id="9.1请求机器人实时全局状态"><a name="9.1请求机器人实时全局状态" href="#9.1请求机器人实时全局状态"></a>9.1请求机器人实时全局状态</h4><p><strong>本接口至少需要软件版本v0.4.0</strong></p><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>topic</td>
+<td>请求的实时数据类型</td>
+<td>必选</td>
+<td>robot_status</td>
+<td></td>
+<td>v0.4.0</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>开启/停止数据发送</td>
+<td>必选</td>
+<td>on/off</td>
+<td>已弃用</td>
+<td>v0.4.0-v0.7.6.3</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>发送频率</td>
+<td>可选</td>
+<td>&gt;0.0</td>
+<td>默认2HZ</td>
+<td>v0.4.0</td>
+</tr>
+</tbody>
+</table><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送请求：</strong></p><pre><code data-origin="<pre><code>/api/request_data?topic=robot_status&amp;amp;frequency=1
+// 请求server以1HZ的频率发送机器人全局状态
+</code></pre>">/api/request_data?topic=robot_status&amp;frequency=1
+// 请求server以1HZ的频率发送机器人全局状态
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/request_data&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/request_data"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><p>成功请求后，server以1HZ的频率发送<strong>topic</strong>为robot_status的数据, type为<strong>callback</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;callback&quot;,
+    &quot;topic&quot;: &quot;robot_status&quot;,
+    &quot;results&quot;:
+    {
+    ...   // 详见接口3里“results”的内容和解释
+    }
+}
+</code></pre>">{
+    "type": "callback",
+    "topic": "robot_status",
+    "results":
+    {
+    ...   // 详见接口3里“results”的内容和解释
+    }
+}
+</code></pre><h4 id="9.2请求人检测实时数据"><a name="9.2请求人检测实时数据" href="#9.2请求人检测实时数据"></a>9.2请求人检测实时数据</h4><p><strong>本接口至少需要软件版本v0.7.7</strong></p><p><strong>注: 本接口需配置并启用人腿识别模块</strong></p><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>topic</td>
+<td>请求的实时数据类型</td>
+<td>必选</td>
+<td>human_detection</td>
+<td></td>
+<td>v0.7.7</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>发送频率</td>
+<td>可选</td>
+<td>&gt;0.0</td>
+<td>默认1HZ</td>
+<td>v0.7.7</td>
+</tr>
+</tbody>
+</table><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送请求：</strong></p><pre><code data-origin="<pre><code>/api/request_data?topic=human_detection&amp;amp;frequency=0.5
+// 请求server以0.5HZ的频率发送人检测结果
+</code></pre>">/api/request_data?topic=human_detection&amp;frequency=0.5
+// 请求server以0.5HZ的频率发送人检测结果
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/request_data&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/request_data"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><p>成功请求后，server以0.5HZ的频率发送<strong>topic</strong>为human_detection, type为<strong>callback</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;callback&quot;,
+    &quot;topic&quot;: &quot;human_detection&quot;,
+    &quot;results&quot;: {
+        &quot;legtrack 0&quot;: {   // 识别ID
+            &quot;position&quot;: {  // 位置， 机器人正前方为x轴正向，右手坐标系
+                &quot;x&quot;: -0.4504653354557998,
+                &quot;y&quot;: -0.6021136068883720
+            },
+            &quot;velocity&quot;: { // 速度
+                &quot;x&quot;: 0.0002109676660555934,
+                &quot;y&quot;: :0.0001660708499816679
+            }
+        },
+        &quot;legtrack 1&quot;: {
+            &quot;position&quot;: {
+                &quot;x&quot;: -0.4504653354557998,
+                &quot;y&quot;: -0.6021136068883720
+            },
+            &quot;velocity&quot;: {
+                &quot;x&quot;: 0.0002109676660555934,
+                &quot;y&quot;: :0.0001660708499816679
+            }
+        }
+    }
+}
+</code></pre>">{
+    "type": "callback",
+    "topic": "human_detection",
+    "results": {
+        "legtrack 0": {   // 识别ID
+            "position": {  // 位置， 机器人正前方为x轴正向，右手坐标系
+                "x": -0.4504653354557998,
+                "y": -0.6021136068883720
+            },
+            "velocity": { // 速度
+                "x": 0.0002109676660555934,
+                "y": :0.0001660708499816679
+            }
+        },
+        "legtrack 1": {
+            "position": {
+                "x": -0.4504653354557998,
+                "y": -0.6021136068883720
+            },
+            "velocity": {
+                "x": 0.0002109676660555934,
+                "y": :0.0001660708499816679
+            }
+        }
+    }
+}
+</code></pre><h4 id="9.3获取机器人实时速度"><a name="9.3获取机器人实时速度" href="#9.3获取机器人实时速度"></a>9.3获取机器人实时速度</h4><p><strong>本接口至少需要软件版本v0.7.10</strong></p><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>topic</td>
+<td>请求的实时数据类型</td>
+<td>必选</td>
+<td>robot_velocity</td>
+<td></td>
+<td>v0.7.10</td>
+</tr>
+<tr>
+<td>frequency</td>
+<td>发送频率</td>
+<td>可选</td>
+<td>&gt;0.0</td>
+<td>默认1HZ</td>
+<td>v0.7.10</td>
+</tr>
+</tbody>
+</table><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送请求：</strong></p><pre><code data-origin="<pre><code>/api/request_data?topic=robot_velocity&amp;amp;frequency=0.5
+// 请求server以0.5HZ的频率发送机器人当前速度
+</code></pre>">/api/request_data?topic=robot_velocity&amp;frequency=0.5
+// 请求server以0.5HZ的频率发送机器人当前速度
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/request_data&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/request_data"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><p>成功请求后，server以0.5HZ的频率发送<strong>topic</strong>为robot_velocity, type为<strong>callback</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;callback&quot;,
+    &quot;topic&quot;: &quot;robot_velocity&quot;,
+    &quot;results&quot;: {
+        &quot;angular&quot;: 0.1,   // 机器人角速度, 大于0表示左转, 小于0表示右转
+        &quot;linear&quot;: 0.1     // 机器人线速度, 大于0表示前进, 小于0表示后退
+    }
+}
+</code></pre>">{
+    "type": "callback",
+    "topic": "robot_velocity",
+    "results": {
+        "angular": 0.1,   // 机器人角速度, 大于0表示左转, 小于0表示右转
+        "linear": 0.1     // 机器人线速度, 大于0表示前进, 小于0表示后退
+    }
+}
+</code></pre><h3 id="10.机器人主动通知"><a name="10.机器人主动通知" href="#10.机器人主动通知"></a>10.机器人主动通知</h3><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>机器人主动发出通知给<strong>所有</strong>连接的client，客户端在收到通知后可以进行相应的动作，比如语音播报等。<br><strong>注: 不建议作为流程控制的逻辑判断，因为网络等原因可能会造成收不到通知。建议通过<a href="#3.获取机器人当前全局状态">接口3 获取机器人当前全局状态</a>获取实时状态作为流程的逻辑判断。</strong></p><h4 id="通知列表："><a name="通知列表：" href="#通知列表："></a>通知列表：</h4><table>
+<thead>
+<tr>
+<th>code</th>
+<th>description</th>
+<th><em>中文解释</em></th>
+<th>level</th>
+<th>从以下版本开始</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> <strong>通用移动任务：</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>需要调用<a href="#1.机器人移动功能">接口1 机器人移动功能</a>才会触发下列通知</td>
+</tr>
+<tr>
+<td> “01001”</td>
+<td>The move task is started.</td>
+<td>移动任务开始了。</td>
+<td>info</td>
+<td>0.4.0</td>
+<td></td>
+</tr>
+<tr>
+<td> “01002”</td>
+<td>The move task is finished.</td>
+<td>移动任务完成了。</td>
+<td>info</td>
+<td>0.4.0</td>
+<td></td>
+</tr>
+<tr>
+<td> “01003”</td>
+<td>The move task is failed.</td>
+<td>移动任务失败了。</td>
+<td>warning</td>
+<td>0.4.0</td>
+<td>在<strong>连续</strong>移动重试(01004)一定次数机器人都几乎没有移动后，会发出此通知并且判定任务失败。</td>
+</tr>
+<tr>
+<td> “01004”</td>
+<td>The move task is canceled.</td>
+<td>移动任务被取消了。</td>
+<td>info</td>
+<td>0.4.0</td>
+<td>调用<a href="#2.移动取消功能">接口2 移动取消功能</a>成功取消掉移动任务后，会发出此通知。</td>
+</tr>
+<tr>
+<td> “01005”</td>
+<td>The move task is retried.</td>
+<td>移动重试。</td>
+<td>info</td>
+<td>0.4.0</td>
+<td>机器人每次尝试移动失败,并且没有达到移动失败(01003)条件，会发出此通知，之后会重新规划路径去目标点。</td>
+</tr>
+<tr>
+<td> “01006”</td>
+<td>The robot may be trapped.</td>
+<td>机器人可能被困住了。</td>
+<td>warning</td>
+<td>0.7.3</td>
+<td>在<strong>连续</strong>移动重试(01004)一定次数机器人都几乎没有移动后，会发出此通知，此时可能需要人为介入帮助机器人脱困。</td>
+</tr>
+<tr>
+<td> “01010”</td>
+<td>Start to leave charging pile.</td>
+<td>开始离开充电桩。</td>
+<td>info</td>
+<td>0.5.2 </td>
+</tr>
+<tr>
+<td> “01011”</td>
+<td>Succeed to leave charging pile.</td>
+<td>离开充电桩成功了。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “01012”</td>
+<td>Failed to leave charging plie.</td>
+<td>离开充电桩失败了。</td>
+<td>warning</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “01020”</td>
+<td>Start to auto dock to charging pile.</td>
+<td>开始自动停靠到充电桩。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “01021”</td>
+<td>Succced to auto dock to charging pile.</td>
+<td>自动停靠到充电桩上成功了。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “01022”</td>
+<td>Failed to auto dock to charging pile.</td>
+<td>自动停靠到充电桩上失败了。</td>
+<td>warning</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “01023”</td>
+<td>Failed to to receive valid data.</td>
+<td>回充电失败原因1。</td>
+<td>warning</td>
+<td>0.5.10</td>
+</tr>
+<tr>
+<td> “01024”</td>
+<td>Failed to find any feature around the robot.</td>
+<td>回充电失败原因2。</td>
+<td>warning</td>
+<td>0.5.10</td>
+</tr>
+<tr>
+<td> “01025”</td>
+<td>Failed to catch power status.</td>
+<td>回充电失败原因3。</td>
+<td>warning</td>
+<td>0.5.10</td>
+</tr>
+<tr>
+<td> “01026”</td>
+<td>Failed to catch infrared signal.</td>
+<td>回充电失败原因4。</td>
+<td>warning</td>
+<td>0.5.10</td>
+</tr>
+<tr>
+<td> “01030”</td>
+<td>Start controlling the electronic door.</td>
+<td>开始控制电子门/闸机。</td>
+<td>info</td>
+<td>0.7.4</td>
+</tr>
+<tr>
+<td> “01031”</td>
+<td>Finish controlling the electronic door.</td>
+<td>结束控制电子门/闸机。</td>
+<td>info</td>
+<td>0.7.4</td>
+</tr>
+<tr>
+<td> “01032”</td>
+<td>Control the electronic door for too long, forced release control.</td>
+<td>控制电子门/闸机已经超时，强制释放控制。</td>
+<td>warning</td>
+<td>0.7.4</td>
+</tr>
+<tr>
+<td> “01101”</td>
+<td>The cruise is started.</td>
+<td>巡游任务开始了。</td>
+<td>info</td>
+<td>0.7.4</td>
+<td></td>
+</tr>
+<tr>
+<td> “01102”</td>
+<td>The cruise is finished.</td>
+<td>巡游任务完成了。</td>
+<td>info</td>
+<td>0.7.4</td>
+<td></td>
+</tr>
+<tr>
+<td> “01103”</td>
+<td>The cruise is failed.</td>
+<td>巡游任务失败了。</td>
+<td>warning</td>
+<td>0.7.4</td>
+<td>当最后一个移动任务失败时，发送此通知</td>
+</tr>
+<tr>
+<td> “01104”</td>
+<td>The cruise is canceled.</td>
+<td>巡游任务被取消了。</td>
+<td>info</td>
+<td>0.7.4</td>
+<td>调用<a href="#2.移动取消功能">接口2 移动取消功能</a>成功取消掉巡游任务后，会发出此通知。</td>
+</tr>
+<tr>
+<td> “01201”</td>
+<td>Trapped in unknown area.</td>
+<td>被困在未知区域(地图中灰色区域)</td>
+<td>warning</td>
+<td>0.7.6</td>
+<td></td>
+</tr>
+<tr>
+<td> “01202”</td>
+<td>Trapped in obstacle.</td>
+<td>被困在障碍物附近(地图中黑线)</td>
+<td>warning</td>
+<td>0.7.6</td>
+<td></td>
+</tr>
+<tr>
+<td> “01203”</td>
+<td>Failed to make global plan.</td>
+<td>全局路径规划失败(困在灰色区域、被挡死时大概每５s触发一次)</td>
+<td>info</td>
+<td>0.7.9</td>
+<td></td>
+</tr>
+<tr>
+<td> <strong>电梯任务：</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>需要调用<a href="#1.机器人移动功能">接口1 机器人移动功能</a>才会触发下列通知</td>
+</tr>
+<tr>
+<td> “04000”</td>
+<td>Start to go to lift.</td>
+<td>开始去电梯门口。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04001”</td>
+<td>Succeed to go to lift.</td>
+<td>去电梯门口成功了。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04002”</td>
+<td>Failed to go to lift.</td>
+<td>去电梯门口失败了。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04010”</td>
+<td>Start to call lift.</td>
+<td>开始呼叫电梯。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04011”</td>
+<td>Succeed to call lift.</td>
+<td>呼叫电梯成功了。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04013”</td>
+<td>Call lift more than 3 minutes.</td>
+<td>呼叫电梯超过3分钟了还没来。</td>
+<td>warning</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04020”</td>
+<td>Start to take lift.</td>
+<td>开始乘坐电梯。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04021”</td>
+<td>Succeed to take lift.</td>
+<td>乘坐电梯成功，准备出电梯。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04023”</td>
+<td>Take lift more than 3 minutes.”</td>
+<td>乘坐电梯超过3分钟了还没到。</td>
+<td>warning</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04030”</td>
+<td>Start to enter lift.</td>
+<td>开始进电梯。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04031”</td>
+<td>Succeed to enter lift.</td>
+<td>进电梯成功。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04032”</td>
+<td>Failed to enter lift.</td>
+<td>进电梯失败。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04033”</td>
+<td>There is not enough space in the lift,take the next lift.</td>
+<td>电梯里空间不够,等待乘坐下一趟电梯。</td>
+<td>info</td>
+<td>0.7.3</td>
+</tr>
+<tr>
+<td> “04040”</td>
+<td>Start to avoid liftt.</td>
+<td>进电梯失败，开始回避电梯。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04041”</td>
+<td>Finish to avoid lift.</td>
+<td>回避电梯成功。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04050”</td>
+<td>Start to exit lift.</td>
+<td>开始出电梯。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04051”</td>
+<td>Succeed to exit lift.</td>
+<td>出电梯成功了。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04052”</td>
+<td>Failed to exit lift.</td>
+<td>出电梯失败了。</td>
+<td>warning</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04060”</td>
+<td>Start to back to lift.</td>
+<td>出电梯失败，开始回到电梯。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04061”</td>
+<td>Succeed to back to lift.</td>
+<td>回到电梯成功了。</td>
+<td>info</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04062”</td>
+<td>Failed to back to lift.</td>
+<td>回到电梯失败了。</td>
+<td>warning</td>
+<td>0.5.2</td>
+</tr>
+<tr>
+<td> “04070”</td>
+<td>Start waiting for the lift to unlock.</td>
+<td>开始等待电梯解锁。</td>
+<td>info</td>
+<td>0.8.1</td>
+</tr>
+<tr>
+<td> “04071”</td>
+<td>End waiting for the lift to unlock.</td>
+<td>等待电梯解锁结束(成功)。</td>
+<td>info</td>
+<td>0.8.1</td>
+</tr>
+<tr>
+<td> <strong>状态相关：</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>下列通知不需移动任务触发</td>
+</tr>
+<tr>
+<td> “02000”</td>
+<td>Poweroff notice.</td>
+<td>将关机断电</td>
+<td>“info”</td>
+<td>0.5.6</td>
+</tr>
+<tr>
+<td> “02001”</td>
+<td>Charge status on.</td>
+<td>未充电状态=&gt;充电状态</td>
+<td>“info”</td>
+<td>0.5.6</td>
+</tr>
+<tr>
+<td> “02002”</td>
+<td>Charge status off.</td>
+<td>充电状态=&gt;未充电状态</td>
+<td>“info”</td>
+<td>0.5.6</td>
+</tr>
+<tr>
+<td> “02003”</td>
+<td>Estop on.</td>
+<td>未急停状态=&gt;急停状态</td>
+<td>“info”</td>
+<td>0.5.6</td>
+</tr>
+<tr>
+<td> “02004”</td>
+<td>Estop off.</td>
+<td>急停状态=&gt;未急停状态</td>
+<td>“info”</td>
+<td>0.5.6</td>
+</tr>
+<tr>
+<td> “02005”</td>
+<td>Triggered attitude correction.</td>
+<td>姿态校正被触发（此时机器人可能被搬动了）</td>
+<td>“warning”</td>
+<td>0.7.3</td>
+</tr>
+<tr>
+<td> “02006”</td>
+<td>Software shutdown notice.</td>
+<td>软件即将关闭</td>
+<td>“info”</td>
+<td>0.8.2</td>
+</tr>
+<tr>
+<td> <strong>异常状态：</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>下列通知不需移动任务触发</td>
+</tr>
+<tr>
+<td> “03001”</td>
+<td>Abnormal object was detected in the robot.</td>
+<td>机器人体内检测到异常物体(激光槽内有异物).</td>
+<td>“warning”</td>
+<td>0.8.2</td>
+</tr>
+</tbody>
+</table><h4 id="字段解释："><a name="字段解释：" href="#字段解释："></a>字段解释：</h4><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>通知的ID</td>
+<td>作为唯一标识，同一通知所使用的代码不会发生改变， 后续将扩展新的通知</td>
+</tr>
+<tr>
+<td>description</td>
+<td>通知的英文解释</td>
+<td>可作为打印信息</td>
+</tr>
+<tr>
+<td>level</td>
+<td>通知的级别</td>
+<td>限定为info/warning/error类型, 每个code的划分以后可能会改</td>
+</tr>
+<tr>
+<td>data</td>
+<td>通知附带的参考信息</td>
+<td>软件版本v0.7.4新增</td>
+</tr>
+<tr>
+<td>中文解释</td>
+<td>通知的中文解释</td>
+<td>仅存在于文档内,实际通知并不会发出这个字段</td>
+</tr>
+</tbody>
+</table><p><strong>从软件版本0.7.4开始，通知新增data字段作为附加信息,具体见下:</strong></p><table>
+<thead>
+<tr>
+<th>code</th>
+<th>data</th>
+<th>说明</th>
+<th>从以下版本开始 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 01001至01031</td>
+<td>“target”:”m”</td>
+<td>当前移动的目标点位名称</td>
+<td>0.7.4</td>
+</tr>
+<tr>
+<td> 01002/010023/01004</td>
+<td>“distance”: 0.2</td>
+<td>任务行走的距离(m)</td>
+<td>0.7.6</td>
+</tr>
+<tr>
+<td> 01101至01104</td>
+<td>“markers”:[“m1”,”m2”]</td>
+<td>巡游的点位</td>
+<td>0.7.4</td>
+</tr>
+<tr>
+<td></td>
+<td>“count”:-1</td>
+<td>巡游的圈数</td>
+<td>0.7.4</td>
+</tr>
+<tr>
+<td></td>
+<td>“distance_tolerance”:1</td>
+<td>点位到达距离容差</td>
+<td>0.7.4</td>
+</tr>
+</tbody>
+</table><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;notification&quot;,
+    &quot;code&quot;: &quot;01001&quot;,
+    &quot;level&quot;: &quot;info&quot;,
+    &quot;description&quot;: &quot;The move task is started.&quot;,
+    &quot;data&quot;:{&quot;target&quot;:&quot;room_205&quot;}
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"notification"</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-string">"01001"</span></span>,
+    "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-string">"info"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The move task is started."</span></span>,
+    "<span class="hljs-attribute">data</span>":<span class="hljs-value">{"<span class="hljs-attribute">target</span>":<span class="hljs-value"><span class="hljs-string">"room_205"</span></span>}
+</span>}
+</code></pre><h3 id="11.设置参数"><a name="11.设置参数" href="#11.设置参数"></a>11.设置参数</h3><p><strong>本接口至少需要软件版本v0.4.2</strong></p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/set_params
+</code></pre>">/api/set_params
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>从以下版本开始版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max_speed</td>
+<td>机器人最大行进速度(百分比)</td>
+<td>可选</td>
+<td>[0.3, 0.7]</td>
+<td>小于0.3取0.3，大于0.7取0.7</td>
+<td>v0.4.2-v0.5.1（已弃用）</td>
+</tr>
+<tr>
+<td>max_speed_ratio</td>
+<td>机器人最大行进速度百分比</td>
+<td>可选</td>
+<td>[0.3, 1.4]</td>
+<td>小于0.3取0.3，大于1.4取1.4</td>
+<td>v0.5.2-v0.8.5.1(已弃用)</td>
+</tr>
+<tr>
+<td>max_speed_linear</td>
+<td>机器人最大直线速度</td>
+<td>可选</td>
+<td>[0.1, 1.0] (m/s)</td>
+<td>小于0.1取0.1，大于1.0取1.0</td>
+<td>v0.8.6</td>
+</tr>
+<tr>
+<td>max_speed_angular</td>
+<td>机器人最大角速度</td>
+<td>可选</td>
+<td>[0.5, 3.5] (rad/s)</td>
+<td>小于0.5取0.5，大于3.5取3.5</td>
+<td>v0.8.6</td>
+</tr>
+</tbody>
+</table><p><strong>注: 此接口设置的最大线/角速度会结合机器人内部参数，最终运行中使用最小值生效</strong></p><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>设置机器人的参数。<br>需要<strong>注意</strong>的是：调用此接口后无论是否成功，返回的json中“status”字段都是“OK”。如果想确定参数是否设置成功，请调用<a href="#12.获取参数">接口12 获取参数</a>获取参数后查看参数的当前值。</p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/set_params?max_speed_linear=0.5
+// 设置机器人最大行进速度为0.5米/秒
+</code></pre>">/api/set_params?max_speed_linear=0.5
+// 设置机器人最大行进速度为0.5米/秒
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/set_params&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/set_params"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+</span>}
+</code></pre><h3 id="12.获取参数"><a name="12.获取参数" href="#12.获取参数"></a>12.获取参数</h3><p><strong>本接口至少需要软件版本v0.4.2</strong></p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/get_params
+</code></pre>">/api/get_params
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><p>N/A</p><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>获取已设置的参数列表以及当前值。各版本支持的参数见<a href="#11.设置参数">接口11 设置参数</a>。</p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/get_params
+// 获取参数列表和当前值
+</code></pre>">/api/get_params
+// 获取参数列表和当前值
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/get_params&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;max_speed_linear&quot;: 0.5
+    }
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/get_params"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">results</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">max_speed_linear</span>": <span class="hljs-value"><span class="hljs-number">0.5</span>
+    </span>}
+</span>}
+</code></pre><h3 id="13.无线网络接口"><a name="13.无线网络接口" href="#13.无线网络接口"></a>13.无线网络接口</h3><h4 id="13.1获取机器人当前可用的wifi列表"><a name="13.1获取机器人当前可用的wifi列表" href="#13.1获取机器人当前可用的wifi列表"></a>13.1获取机器人当前可用的WiFi列表</h4><p><strong>本接口至少需要软件版本v0.5.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/wifi/list
+</code></pre>">/api/wifi/list
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取机器人当前可用的WiFi列表，返回中包含SSID和信号强度。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/wifi/list
+</code></pre>">/api/wifi/list
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/wifi/list&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;SSID1&quot;: 50,
+        &quot;SSID2&quot;: 30,
+        &quot;SSID3&quot;: 80,
+    }
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/wifi/list"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">results</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">SSID1</span>": <span class="hljs-value"><span class="hljs-number">50</span></span>,
+        "<span class="hljs-attribute">SSID2</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+        "<span class="hljs-attribute">SSID3</span>": <span class="hljs-value"><span class="hljs-number">80</span></span>,
+    }
+</span>}
+</code></pre><h4 id="13.2连接wifi"><a name="13.2连接wifi" href="#13.2连接wifi"></a>13.2连接WiFi</h4><p><strong>本接口至少需要软件版本v0.5.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/wifi/connect
+</code></pre>">/api/wifi/connect
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SSID</td>
+<td>WiFi的SSID</td>
+<td>必选</td>
+<td>当前的环境WiFi</td>
+<td></td>
+<td>v0.5.2</td>
+</tr>
+<tr>
+<td>password</td>
+<td>WiFi密码</td>
+<td>可选</td>
+<td>SSID对应</td>
+<td>如果已经连接过，可以不填</td>
+<td>v0.5.2</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>使机器人连接到环境WiFi或切换当前连接的环境WiFi。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/wifi/connect?SSID=SSID1&amp;amp;password=123456
+</code></pre>">/api/wifi/connect?SSID=SSID1&amp;password=123456
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/wifi/connect&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/wifi/connect"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+}
+</code></pre><h4 id="13.3获取当前连接的wifi"><a name="13.3获取当前连接的wifi" href="#13.3获取当前连接的wifi"></a>13.3获取当前连接的WiFi</h4><p><strong>本接口至少需要软件版本v0.5.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/wifi/get_active_connection
+</code></pre>">/api/wifi/get_active_connection
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取机器人当前连接的WiFi的SSID.</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/wifi/get_active_connection
+</code></pre>">/api/wifi/get_active_connection
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/wifi/get_active_connection&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;:&quot;SSID1&quot;   // 如果当前未连接到WiFi，则results为空&quot;&quot;
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/wifi/get_active_connection"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">results</span>":<span class="hljs-value"><span class="hljs-string">"SSID1"</span>   // 如果当前未连接到WiFi，则results为空<span class="hljs-string">""</span>
+</span>}
+</code></pre><h4 id="13.4获取机器人ip和无线网卡地址"><a name="13.4获取机器人ip和无线网卡地址" href="#13.4获取机器人ip和无线网卡地址"></a>13.4获取机器人IP和无线网卡地址</h4><p><strong>本接口至少需要软件版本v0.5.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/wifi/info
+</code></pre>">/api/wifi/info
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取机器人当前通过环境WiFi分配到的IP地址和无线网卡的物理地址。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/wifi/info
+</code></pre>">/api/wifi/info
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/wifi/info&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;:{
+        &quot;IPaddr&quot;: &quot;192.168.XXX.XXX&quot;, // 如果未连接WiFi则为空“”
+        &quot;HWaddr&quot;: &quot;xx:xx:xx:xx:xx:xx&quot;, // 连接WiFi网卡的物理地址
+        },
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/wifi/info",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results":{
+        "IPaddr": "192.168.XXX.XXX", // 如果未连接WiFi则为空“”
+        "HWaddr": "xx:xx:xx:xx:xx:xx", // 连接WiFi网卡的物理地址
+        },
+}
+</code></pre><h4 id="13.5获取机器人当前可用的无线列表详细信息"><a name="13.5获取机器人当前可用的无线列表详细信息" href="#13.5获取机器人当前可用的无线列表详细信息"></a>13.5获取机器人当前可用的无线列表详细信息</h4><p><strong>本接口至少需要软件版本v0.7.7</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/wifi/detail_list
+</code></pre>">/api/wifi/detail_list
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取机器人当前可用的WiFi列表详细信息。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/wifi/detail_list
+</code></pre>">/api/wifi/detail_list
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/wifi/detail_list&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {     // 注： 未检测到可用WiFi时 results={}
+        &quot;SSID1&quot;: {
+            &quot;SSID&quot;: &quot;SSID1&quot;,  // SSID
+            &quot;SIGNAL&quot;: 100,  // 信号强度
+            &quot;ACTIVE&quot;: False, // 连接状态  True-&amp;gt;已连接， False-&amp;gt;未连接
+            &quot;FREQ&quot;: &quot;2462 MHz&quot;, // 频段， 2.4G/5G
+            &quot;SECURITY&quot;: &quot;WPA2&quot;  // 加密方式。 空表示无加密
+         },
+        &quot;SSID2&quot;: {
+            &quot;SSID&quot;: &quot;SSID2&quot;,
+            &quot;SIGNAL&quot;: 80,
+            &quot;ACTIVE&quot;: False,
+            &quot;FREQ&quot;: &quot;2412 MHz&quot;,
+            &quot;SECURITY&quot;: &quot;&quot;
+         },
+        &quot;SSID1_5G&quot;: {
+            &quot;SSID&quot;: &quot;SSID1_5G&quot;,
+            &quot;SIGNAL&quot;: 90,
+            &quot;ACTIVE&quot;: True,
+            &quot;FREQ&quot;: &quot;5260 MHz&quot;,
+            &quot;SECURITY&quot;: &quot;WPA WPA2&quot;
+         }
+    }
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/wifi/detail_list",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results": {     // 注： 未检测到可用WiFi时 results={}
+        "SSID1": {
+            "SSID": "SSID1",  // SSID
+            "SIGNAL": 100,  // 信号强度
+            "ACTIVE": False, // 连接状态  True-&gt;已连接， False-&gt;未连接
+            "FREQ": "2462 MHz", // 频段， 2.4G/5G
+            "SECURITY": "WPA2"  // 加密方式。 空表示无加密
+         },
+        "SSID2": {
+            "SSID": "SSID2",
+            "SIGNAL": 80,
+            "ACTIVE": False,
+            "FREQ": "2412 MHz",
+            "SECURITY": ""
+         },
+        "SSID1_5G": {
+            "SSID": "SSID1_5G",
+            "SIGNAL": 90,
+            "ACTIVE": True,
+            "FREQ": "5260 MHz",
+            "SECURITY": "WPA WPA2"
+         }
+    }
+}
+</code></pre><h3 id="14.地图接口"><a name="14.地图接口" href="#14.地图接口"></a>14.地图接口</h3><h4 id="14.1获取地图列表"><a name="14.1获取地图列表" href="#14.1获取地图列表"></a>14.1获取地图列表</h4><p><strong>本接口至少需要软件版本v0.5.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/map/list
+</code></pre>">/api/map/list
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取机器人中所有的地图名称和楼层。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/map/list
+</code></pre>">/api/map/list
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/wifi/info&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;:{
+        &quot;map_name_1&quot;: [1,2,3,4,5], // 地图map_name_1中有1-5层
+        &quot;map_name_2&quot;: [10],
+        },
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/wifi/info",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results":{
+        "map_name_1": [1,2,3,4,5], // 地图map_name_1中有1-5层
+        "map_name_2": [10],
+        },
+}
+</code></pre><h4 id="14.2设置当前地图"><a name="14.2设置当前地图" href="#14.2设置当前地图"></a>14.2设置当前地图</h4><p><strong>本接口至少需要软件版本v0.5.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/map/set_current_map
+</code></pre>">/api/map/set_current_map
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>备注</th>
+<th>从以下版本开始</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hotel_id</td>
+<td>地图名</td>
+<td>必选</td>
+<td></td>
+<td>v0.5.2-v0.5.9(已弃用,用map_name取代)</td>
+</tr>
+<tr>
+<td>map_name</td>
+<td>地图名</td>
+<td>必选</td>
+<td></td>
+<td>v0.5.10</td>
+</tr>
+<tr>
+<td>floor</td>
+<td>楼层</td>
+<td>必选</td>
+<td></td>
+<td>v0.5.2</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>设置机器人当前地图。<br><strong><em>注:设置成功后会重启water服务，所以有可能收不到response。</em></strong></p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/map/set_current_map?hotel_id=map_name_1&amp;amp;floor=5
+</code></pre>">/api/map/set_current_map?hotel_id=map_name_1&amp;floor=5
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/map/set_current_map&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/map/set_current_map"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+}
+</code></pre><h4 id="14.3获取当前地图"><a name="14.3获取当前地图" href="#14.3获取当前地图"></a>14.3获取当前地图</h4><p><strong>本接口至少需要软件版本v0.5.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/map/get_current_map
+</code></pre>">/api/map/get_current_map
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取机器人当前地图。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/map/get_current_map
+</code></pre>">/api/map/get_current_map
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/map/get_current_map&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;:{
+        &quot;hotel_id&quot;: &quot;map_name_1&quot;,  // v0.5.2-v0.5.9(已弃用)
+        &quot;map_name&quot;: &quot;map_name_1&quot;,  // v0.5.10以后
+        &quot;floor&quot;: &quot;5&quot;
+        &quot;info&quot;: {   // v0.7.8新增, 注:地图加载失败时没有info字段
+            &quot;resolution&quot;: 0.05,        // v0.7.8  分辨率(米/像素)
+            &quot;width&quot;: 1024,              // v0.7.8 宽度
+            &quot;height&quot;: 768,            // v0.7.8 高度
+            &quot;origin_x&quot;: -24.04,        // v0.7.8 左下角坐标x
+            &quot;origin_y&quot;: -12.52        // v0.7.8 左下角坐标y
+        }
+    },
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/map/get_current_map",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results":{
+        "hotel_id": "map_name_1",  // v0.5.2-v0.5.9(已弃用)
+        "map_name": "map_name_1",  // v0.5.10以后
+        "floor": "5"
+        "info": {   // v0.7.8新增, 注:地图加载失败时没有info字段
+            "resolution": 0.05,        // v0.7.8  分辨率(米/像素)
+            "width": 1024,              // v0.7.8 宽度
+            "height": 768,            // v0.7.8 高度
+            "origin_x": -24.04,        // v0.7.8 左下角坐标x
+            "origin_y": -12.52        // v0.7.8 左下角坐标y
+        }
+    },
+}
+</code></pre><h3 id="15.关机重启接口"><a name="15.关机重启接口" href="#15.关机重启接口"></a>15.关机重启接口</h3><p><strong>本接口至少需要软件版本v0.5.10</strong></p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/shutdown
+</code></pre>">/api/shutdown
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>软件版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>reboot</td>
+<td>关机后是否重启</td>
+<td>可选</td>
+<td>true/false</td>
+<td>缺省为false</td>
+<td>v0.5.10</td>
+</tr>
+<tr>
+<td>delay</td>
+<td>关机后多久重启</td>
+<td>可选</td>
+<td>[0, 14400] (单位分钟)</td>
+<td>reboot为true时才生效</td>
+<td>v0.8.1</td>
+</tr>
+</tbody>
+</table><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>调用接口关闭或者重新启动机器人,在电源关闭之前会有通知发出(见<a href="#10.机器人主动通知">接口10 机器人主动通知</a>)，在通知发出后10s电源关闭。如果是重启的话, 重新上电与电源关闭间会有5s间隔。<br><strong><em>注:可能会收不到response。</em></strong></p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/shutdown   // 关机
+</code></pre>">/api/shutdown   // 关机
+</code></pre><p>或者</p><pre><code data-origin="<pre><code>/api/shutdown?reboot=true       // 重启
+</code></pre>">/api/shutdown?reboot=true       // 重启
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/shutdown&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/shutdown"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+}
+</code></pre><h3 id="16.软件更新接口"><a name="16.软件更新接口" href="#16.软件更新接口"></a>16.软件更新接口</h3><h4 id="16.1-获取当前软件版本"><a name="16.1-获取当前软件版本" href="#16.1-获取当前软件版本"></a>16.1 获取当前软件版本</h4><p><strong>本接口至少需要软件版本v0.5.5</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/software/get_version
+</code></pre>">/api/software/get_version
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取当前软件版本。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/software/get_version
+</code></pre>">/api/software/get_version
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/software/get_version&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;:&quot;x.x,x&quot;,    // 当前软件版本
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/software/get_version",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results":"x.x,x",    // 当前软件版本
+}
+</code></pre><p><strong>失败返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/software/get_version&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;UNKNOWN_ERROR&quot;,
+    &quot;error_message&quot;: &quot;xxx&quot;,    // 失败原因
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/software/get_version",
+    "uuid": "",
+    "status": "UNKNOWN_ERROR",
+    "error_message": "xxx",    // 失败原因
+}
+</code></pre><h4 id="16.2-检查更新"><a name="16.2-检查更新" href="#16.2-检查更新"></a>16.2 检查更新</h4><p><strong>本接口至少需要软件版本v0.5.5</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/software/check_for_update
+</code></pre>">/api/software/check_for_update
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>检查是否有新版本可以更新，返回当前版本、最新版本和是否可以更新。<br><strong>注：</strong></p><ol>
+<li>本功能需要机器人接入网络，否则返回失败。</li><li>本接口是阻塞执行。</li></ol><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/software/check_for_update
+</code></pre>">/api/software/check_for_update
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/software/check_for_update&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;:{
+        &quot;version_latest&quot;:&quot;x,x,x&quot;,   // 当前版本
+        &quot;version_current&quot;:&quot;x.x.x&quot;,  // 最新版本
+        &quot;enable_update&quot;:bool,  // 能否更新，true-&amp;gt;能更新，false-&amp;gt;不能更新
+    },
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/software/check_for_update",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results":{
+        "version_latest":"x,x,x",   // 当前版本
+        "version_current":"x.x.x",  // 最新版本
+        "enable_update":bool,  // 能否更新，true-&gt;能更新，false-&gt;不能更新
+    },
+}
+</code></pre><p><strong>失败返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/software/check_for_update&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;UNKNOWN_ERROR&quot;,
+    &quot;error_message&quot;: &quot;xxx&quot;,    // 错误消息
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/software/check_for_update",
+    "uuid": "",
+    "status": "UNKNOWN_ERROR",
+    "error_message": "xxx",    // 错误消息
+}
+</code></pre><h4 id="16.3-更新"><a name="16.3-更新" href="#16.3-更新"></a>16.3 更新</h4><p><strong>本接口至少需要软件版本v0.5.5</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/software/update
+</code></pre>">/api/software/update
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>更新软件到<strong>最新版本</strong>。<br><strong>注：</strong></p><ol>
+<li>本功能需要机器人接入网络，否则返回失败。</li><li>本接口是阻塞执行。</li><li>升级成功后将自动重启软件服务, 所有tcp socket需要重新连接。</li></ol><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/software/update
+</code></pre>">/api/software/update
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/software/update&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/software/update"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+}
+</code></pre><p><strong>失败返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/software/update&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;UNKNOWN_ERROR&quot;,
+    &quot;error_message&quot;: &quot;xxx&quot;,    // 错误消息
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/software/update",
+    "uuid": "",
+    "status": "UNKNOWN_ERROR",
+    "error_message": "xxx",    // 错误消息
+}
+</code></pre><h4 id="16.4重启服务"><a name="16.4重启服务" href="#16.4重启服务"></a>16.4重启服务</h4><p><strong>本接口至少需要软件版本v0.8.2</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/software/restart
+</code></pre>">/api/software/restart
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>重启软件服务<br><strong>注：</strong></p><ol>
+<li>重启软件服务后, 所有tcp socket需要重新连接。</li></ol><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/software/restart
+</code></pre>">/api/software/restart
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/software/restart&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/software/restart"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+}
+</code></pre><h3 id="17.设置灯带接口"><a name="17.设置灯带接口" href="#17.设置灯带接口"></a>17.设置灯带接口</h3><h4 id="17.1设置灯带亮度"><a name="17.1设置灯带亮度" href="#17.1设置灯带亮度"></a>17.1设置灯带亮度</h4><p><strong>此接口可以被<a href="#17.2设置灯带颜色">17.2设置灯带颜色</a>接口取代</strong><br><strong>本接口至少需要软件版本v0.6.3</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/LED/set_luminance
+</code></pre>">/api/LED/set_luminance
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>软件版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>亮度百分比</td>
+<td>必选</td>
+<td>[0,100]</td>
+<td>非均匀变化</td>
+<td>v0.6.3</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>设置LED灯带的亮度,设置完将永久改变灯带正常/闪烁/呼吸时的最大亮度。<br><strong><em>注:急停或者充电状态下此接口虽然返回成功，但是设置有可能不生效。</em></strong></p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/LED/set_luminance
+</code></pre>">/api/LED/set_luminance
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/LED/set_luminance?value=50&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/LED/set_luminance?value=50"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+}
+</code></pre><p><strong>失败返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/LED/set_luminance&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;UNKNOWN_ERROR&quot;,
+    &quot;error_message&quot;: &quot;xxx&quot;,    // 失败原因
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/LED/set_luminance",
+    "uuid": "",
+    "status": "UNKNOWN_ERROR",
+    "error_message": "xxx",    // 失败原因
+}
+</code></pre><h4 id="17.2设置灯带颜色"><a name="17.2设置灯带颜色" href="#17.2设置灯带颜色"></a>17.2设置灯带颜色</h4><p><strong>本接口至少需要软件版本v0.8.7</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/LED/set_color
+</code></pre>">/api/LED/set_color
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+<th>是否必选</th>
+<th>取值范围</th>
+<th>备注</th>
+<th>软件版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>红色值</td>
+<td>必选</td>
+<td>[0,100]</td>
+<td></td>
+<td>v0.8.7</td>
+</tr>
+<tr>
+<td>g</td>
+<td>绿色值</td>
+<td>必选</td>
+<td>[0,100]</td>
+<td></td>
+<td>v0.8.7</td>
+</tr>
+<tr>
+<td>b</td>
+<td>蓝色值</td>
+<td>必选</td>
+<td>[0,100]</td>
+<td></td>
+<td>v0.8.7</td>
+</tr>
+</tbody>
+</table><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>设置LED灯带的颜色,设置完将永久改变灯带正常/闪烁/呼吸时的颜色，可以根据r/g/b的值组合出不同的颜色。需要注意的是，当rgb全为0时,不能生效。此设置会读写硬件设备的flash,不推荐高频率使用。<br><strong><em>注:急停或者充电状态下此接口虽然返回成功，但是设置有可能不生效。</em></strong></p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/LED/set_color?r=0&amp;amp;g=100&amp;amp;b=0  // 设置灯带颜色为绿色
+</code></pre>">/api/LED/set_color?r=0&amp;g=100&amp;b=0  // 设置灯带颜色为绿色
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/LED/set_color&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/LED/set_color"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+}
+</code></pre><p><strong>失败返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/LED/set_color&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;UNKNOWN_ERROR&quot;,
+    &quot;error_message&quot;: &quot;xxx&quot;,    // 失败原因
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/LED/set_color",
+    "uuid": "",
+    "status": "UNKNOWN_ERROR",
+    "error_message": "xxx",    // 失败原因
+}
+</code></pre><h3 id="18.自诊断接口"><a name="18.自诊断接口" href="#18.自诊断接口"></a>18.自诊断接口</h3><h4 id="18.1获取自诊断结果"><a name="18.1获取自诊断结果" href="#18.1获取自诊断结果"></a>18.1获取自诊断结果</h4><p><strong>本接口至少需要软件版本v0.6.7</strong></p><h5 id="指令："><a name="指令：" href="#指令："></a>指令：</h5><pre><code data-origin="<pre><code>/api/diagnosis/get_result
+</code></pre>">/api/diagnosis/get_result
+</code></pre><h5 id="参数："><a name="参数：" href="#参数："></a>参数：</h5><p>N/A</p><h5 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h5><p>获取自诊断结果。</p><h5 id="示例："><a name="示例：" href="#示例："></a>示例：</h5><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/diagnosis/get_result
+</code></pre>">/api/diagnosis/get_result
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/diagnosis/get_result&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;sensor_core&quot;: {  // 诊断项:传感器板
+            &quot;status&quot;: bool,   // 最近一次诊断结果，true-&amp;gt;成功 false-&amp;gt;失败
+            &quot;time_stamp&quot;: 1511235083.066043,  // 最近一次诊断时间
+            &quot;total_count&quot;: 4,  // 总诊断次数
+            &quot;success_count&quot;: 4}, // 诊断成功次数
+        &quot;motor_core_right&quot;: {...},  // 诊断项:右电机板
+        &quot;motor_core_left&quot;: {...},  // 诊断项:左电机板
+        &quot;radio_core&quot;: {...},  // 诊断项:无线板
+        &quot;power_core&quot;: {...}, // 诊断项:电源板
+        &quot;depth_camera&quot;: {...}, // 诊断项：深度摄像头
+        &quot;laser&quot;: {...}, // 诊断项：激光
+        &quot;IMU&quot;: {...}, // 诊断项: IMU
+        &quot;CAN&quot;: {...}, // 诊断项: CAN模块
+        &quot;internet&quot;: {...}, 诊断项: 互联网（ping baidu)
+        ... // 待添加
+    }
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/diagnosis/get_result",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results": {
+        "sensor_core": {  // 诊断项:传感器板
+            "status": bool,   // 最近一次诊断结果，true-&gt;成功 false-&gt;失败
+            "time_stamp": 1511235083.066043,  // 最近一次诊断时间
+            "total_count": 4,  // 总诊断次数
+            "success_count": 4}, // 诊断成功次数
+        "motor_core_right": {...},  // 诊断项:右电机板
+        "motor_core_left": {...},  // 诊断项:左电机板
+        "radio_core": {...},  // 诊断项:无线板
+        "power_core": {...}, // 诊断项:电源板
+        "depth_camera": {...}, // 诊断项：深度摄像头
+        "laser": {...}, // 诊断项：激光
+        "IMU": {...}, // 诊断项: IMU
+        "CAN": {...}, // 诊断项: CAN模块
+        "internet": {...}, 诊断项: 互联网（ping baidu)
+        ... // 待添加
+    }
+}
+</code></pre><p><strong>失败返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/diagnosis/get_result&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;UNKNOWN_ERROR&quot;,
+    &quot;error_message&quot;: &quot;xxx&quot;,    // 失败原因
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/diagnosis/get_result",
+    "uuid": "",
+    "status": "UNKNOWN_ERROR",
+    "error_message": "xxx",    // 失败原因
+}
+</code></pre><h3 id="19.获取电源状态接口"><a name="19.获取电源状态接口" href="#19.获取电源状态接口"></a>19.获取电源状态接口</h3><p><strong>本接口至少需要软件版本v0.7.9</strong></p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/get_power_status
+</code></pre>">/api/get_power_status
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><p>N/A</p><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>获取电池的电压、充电电压、电流、电量等信息。</p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/get_power_status
+</code></pre>">/api/get_power_status
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/get_power_status&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;battery_capacity&quot;: 100, // 电量百分比
+        &quot;battery_current&quot;: 0.1, // 电池电流
+        &quot;battery_voltage&quot;: 29.5, // 电池电压
+        &quot;charge_voltage&quot;: 28.9,  // 充电电压
+        &quot;charger_connected_notice&quot;: true, // 是否正在充电。true-&amp;gt;充电中状态。false-&amp;gt;未充电状态
+        &quot;head_current&quot;: 0,           // 上位机耗电电流
+    }
+}
+
+注：
+电池电流符号为正表示充电，负表示放电。
+</code></pre>">{
+    "type": "response",
+    "command": "/api/get_power_status",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results": {
+        "battery_capacity": 100, // 电量百分比
+        "battery_current": 0.1, // 电池电流
+        "battery_voltage": 29.5, // 电池电压
+        "charge_voltage": 28.9,  // 充电电压
+        "charger_connected_notice": true, // 是否正在充电。true-&gt;充电中状态。false-&gt;未充电状态
+        "head_current": 0,           // 上位机耗电电流
+    }
+}
+
+注：
+电池电流符号为正表示充电，负表示放电。
+</code></pre><h3 id="20.获取机器人全局路径接口"><a name="20.获取机器人全局路径接口" href="#20.获取机器人全局路径接口"></a>20.获取机器人全局路径接口</h3><p><strong>本接口至少需要软件版本v0.8.2</strong></p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/get_planned_path
+</code></pre>">/api/get_planned_path
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><p>N/A</p><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>获取机器人当前规划的全局路径。<br><strong>注:</strong><br>返回的路径上点的最大数量有限制，如果超过上限则在路径上平均取一定数量的点返回；如果当前没有任务，则返回空的路径。</p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/get_planned_path
+</code></pre>">/api/get_planned_path
+</code></pre><p><strong>返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/get_planned_path&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;path&quot;: [[17.8172,-32.7272], ... [17.8166,-32.7169]]  // 已规划路径上的点
+    }
+}
+</code></pre>">{
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"response"</span></span>,
+    "<span class="hljs-attribute">command</span>": <span class="hljs-value"><span class="hljs-string">"/api/get_planned_path"</span></span>,
+    "<span class="hljs-attribute">uuid</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"OK"</span></span>,
+    "<span class="hljs-attribute">error_message</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">results</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">path</span>": <span class="hljs-value">[[<span class="hljs-number">17.8172</span>,-<span class="hljs-number">32.7272</span>], ... [<span class="hljs-number">17.8166</span>,-<span class="hljs-number">32.7169</span>]]  // 已规划路径上的点
+    </span>}
+</span>}
+</code></pre><h3 id="21.获取电梯状态接口"><a name="21.获取电梯状态接口" href="#21.获取电梯状态接口"></a>21.获取电梯状态接口</h3><p><strong>本接口至少需要软件版本v0.8.5</strong></p><h4 id="指令："><a name="指令：" href="#指令："></a>指令：</h4><pre><code data-origin="<pre><code>/api/lift_status
+</code></pre>">/api/lift_status
+</code></pre><h4 id="参数："><a name="参数：" href="#参数："></a>参数：</h4><p>N/A</p><h4 id="接口说明："><a name="接口说明：" href="#接口说明："></a>接口说明：</h4><p>获取机器人当前所乘坐电梯的状态。<br><strong>注:</strong><br>此接口的调用时机为”开始呼叫电梯”到”出电梯成功”, running_status为”wait_lift_outside”开始至”exit_lift”结束，其他时间调用会返回超时的错误。</p><h4 id="示例："><a name="示例：" href="#示例："></a>示例：</h4><p><strong>发送：</strong></p><pre><code data-origin="<pre><code>/api/lift_status
+</code></pre>">/api/lift_status
+</code></pre><p><strong>成功返回:</strong></p><pre class="json hljs"><code class="json" data-origin="<pre><code class=&quot;json&quot;>{
+    &quot;type&quot;: &quot;response&quot;,
+    &quot;command&quot;: &quot;/api/lift_status&quot;,
+    &quot;uuid&quot;: &quot;&quot;,
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;,
+    &quot;results&quot;: {
+        &quot;current_floor&quot;: 1  // 当前电梯所在楼层, 注:0表示获取楼层失败
+    }
+}
+</code></pre>">{
+    "type": "response",
+    "command": "/api/lift_status",
+    "uuid": "",
+    "status": "OK",
+    "error_message": "",
+    "results": {
+        "current_floor": 1  // 当前电梯所在楼层, 注:0表示获取楼层失败
+    }
+}
+</code></pre><h3 id="a.-状态代码返回说明（针对返回数据的status）"><a name="a.-状态代码返回说明（针对返回数据的status）" href="#a.-状态代码返回说明（针对返回数据的status）"></a>a. 状态代码返回说明（针对返回数据的status）</h3><table>
+<thead>
+<tr>
+<th>返回码</th>
+<th>定义描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OK</td>
+<td>表示响应包含有效的 results</td>
+</tr>
+<tr>
+<td>INVALID_REQUEST</td>
+<td>表示提供的请求无效。这一状态的常见原因包括参数或参数值无效</td>
+</tr>
+<tr>
+<td>REQUEST_DENIED</td>
+<td>表示系统已拒绝您的请求</td>
+</tr>
+<tr>
+<td>UNKNOWN_ERROR</td>
+<td>表示由于服务器发生错误而无法处理请求。如果您重试一次，请求可能会成功</td>
+</tr>
+</tbody>
+</table><h3 id="b.-错误消息返回说明（针对返回数据的error_message）"><a name="b.-错误消息返回说明（针对返回数据的error_message）" href="#b.-错误消息返回说明（针对返回数据的error_message）"></a>b. 错误消息返回说明（针对返回数据的error_message）</h3><p>如果状态代码不是 OK，在响应对象包含附加的 error_message 字段中更详细地说明了给定状态代码背后的原因。<br><strong>注：此字段不保证始终有内容，并且其内容可能会更改。</strong></p>
+
+<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+</body>
+</html>

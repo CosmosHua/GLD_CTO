@@ -25,7 +25,7 @@ class yolov5_det(object):
             for wt in ['yolov5x.pt', 'yolov5l.pt', 'yolov5m.pt', 'yolov5s.pt']:
                 if os.path.isfile(wt): break
         self.weight = wt; assert os.path.isfile(wt)
-        print(f'Device: {torch.cuda.get_device_name()}')
+        print(f'YOLOv5: {torch.cuda.get_device_name()}')
 
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.half = self.device.type!='cpu' # only CUDA supports half-precision
@@ -115,7 +115,7 @@ class yolov5_det(object):
                             c = int(c); label = '%s %.2f' % (names[c], prob)
                             plot_one_box(xyxy, im, label=label, color=colors[c], line_thickness=2)
                     res = {names[int(c)]:int((det[:,-1]==c).sum()) for c in det[:,-1].unique()}
-                RST.append(res); print('%.2fms'%dt, res)
+                RST.append(res); print('%.2fms:'%dt, res)
 
                 if show: # show results
                     cv2.imshow(str(show), im)
