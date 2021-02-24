@@ -48,7 +48,7 @@ class ros_det:
 
 
     ########################################################
-    def callback_rgb(self, rgb): self.rgb = rgb
+    def callback_rgb(self, rgb): self.rgb = rgb # store
 
 
     def callback_capt(self, stat):

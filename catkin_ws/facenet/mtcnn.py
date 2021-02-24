@@ -312,11 +312,8 @@ class MTCNN(nn.Module):
         """
 
         with torch.no_grad():
-            batch_boxes, batch_points = detect_face(
-                img, self.min_face_size,
-                self.pnet, self.rnet, self.onet,
-                self.thresholds, self.factor,
-                self.device )
+            batch_boxes, batch_points = detect_face(img, self.min_face_size,
+                self.pnet, self.rnet, self.onet, self.thresholds, self.factor, self.device)
 
         boxes, probs, points = [], [], []
         for box, point in zip(batch_boxes, batch_points):

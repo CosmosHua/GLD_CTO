@@ -4,10 +4,12 @@ https://pypi.org/project/pyrealsense2-aarch64
 
 https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python
 
-> pip3 install pyrealsense2
->pip3 install pyrealsense2-aarch64
+> pip3 install pyrealsense2 # not for ARM
+>pip3 install pyrealsense2-aarch64 # useless
 
-#### Ubuntu 16.04/18.04 LTS
+---
+
+**Compile on Ubuntu 16.04/18.04 LTS**
 
 1. Ensure apt-get is up to date
 
@@ -42,3 +44,14 @@ https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python
 5. Alternatively, copy the build output (`librealsense2.so` and `pyrealsense2.so`) next to your script.
 
 > **Note:** Python 3 module filenames may contain additional information, e.g. `pyrealsense2.cpython-35m-arm-linux-gnueabihf.so`)
+
+---
+
+**Using Multi-Camera for D400 Series**
+
+D400: https://dev.intelrealsense.com/docs/multiple-depth-cameras-configuration
+
+L515: https://dev.intelrealsense.com/docs/lidar-camera-l515-multi-camera-setup
+
+Use: https://github.com/IntelRealSense/librealsense/tree/master/wrappers/python/examples/box_dimensioner_multicam/realsense_device_manager.py
+

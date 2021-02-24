@@ -277,6 +277,7 @@ class InceptionResnetV1(nn.Module):
         Returns:
             torch.tensor -- Batch of embedding vectors or multinomial logits.
         """
+        x = x.to(self.device)
         x = self.conv2d_1a(x)
         x = self.conv2d_2a(x)
         x = self.conv2d_2b(x)
@@ -326,12 +327,10 @@ def load_weights(mdl, pretrained):
     pretrained = os.path.join(model_dir, os.path.basename(model))
     if not os.path.exists(pretrained):
         download_url_to_file(model, pretrained)
-
     mdl.load_state_dict(torch.load(pretrained))
 
 
 def get_torch_home():
-    torch_home = os.path.expanduser(
-        os.getenv('TORCH_HOME', os.path.join(os.getenv('XDG_CACHE_HOME', '~/.cache'), 'torch') )
-    )
+    torch_home = os.path.join(os.getenv('XDG_CACHE_HOME','~/.cache'), 'torch')
+    torch_home = os.path.expanduser(os.getenv('TORCH_HOME',torch_home))
     return torch_home

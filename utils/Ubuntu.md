@@ -9,28 +9,28 @@
 >  https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 >
 >  https://mirrors.tuna.tsinghua.edu.cn/help/pypi/
->
->  pip install pip -U; 
+>pip install pip -U; 
 >  pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 ---
 
 >https://blog.csdn.net/u013468614/article/details/103734770
->
 >https://blog.csdn.net/cosmoshua/article/details/76644029
 >
 >vi ~/.bashrc: alias(python pip) PS1(w->W)
 >
 >pinyin input; sudo dmidecode > hd.txt
 >
->NVIDIA: Driver CUDA cuDNN TRT
+>NVIDIA: Driver CUDA cuDNN TensorRT
 
 ---
 
 
-> chrome, vscode, baidunetdisk, foxit reader
->
 > typora: http://support.typora.io/Typora-on-Linux/
+>
+> eudic: https://www.eudic.net/v4/en/app/download
+>
+> sudo dpkg -i: chrome, vscode, nomachine, baidunetdisk, foxit reader
 >
 > - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
 >   OR: wget -qO - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -46,7 +46,9 @@
 >
 > sudo apt install stardict meld calibre xchm pavucontrol audacity kazam
 >
-> sudo apt install openssh-server sshfs; sudo service ssh start
+> sudo apt install openssh-server sshfs unrar; sudo service ssh start;
+>
+> sudo apt install python3-argcomplete youtube-dl
 
 ---
 
@@ -57,13 +59,16 @@
 ---
 
 
-> sudo pip3 install ipython
-> 
+> sudo pip3 install ipython virtualenv # python -m virtualenv `xxx`
+>
 > pip3 install torch==1.6.0 torchvision==0.7.0
-> 
+>
 > pip3 install cython open3d matplotlib pillow labelme
 >
 > pip3 install opencv-python torchsummary pycuda pycocotools
+>
+> git clone https://github.com/cocodataset/cocoapi.git
+> cd cocoapi/PythonAPI/; python setup.py install
 
 ---
 
@@ -105,14 +110,12 @@
 > https://qv2ray.net/en/getting-started/step3.html#subscription
 >
 > https://qv2ray.net/en/plugins/usage.html#how-to-download-and-use-a-plugin
->
 
 > https://github.com/v2fly/v2ray-core/releases
 >
 > https://github.com/Qv2ray/Qv2ray/releases/latest
 >
 > https://github.com/Qv2ray/QvPlugin-Trojan/releases
->
 
 1. Download the [AppImage](https://github.com/Qv2ray/Qv2ray/releases/download/v2.6.3/Qv2ray.v2.6.3.linux-x64.AppImage) of Qv2ray, and `chomd +x *.AppImage`
 2. Download and unzip [v2ray-core.zip](https://github.com/v2fly/v2ray-core/releases/download/v4.33.0/v2ray-linux-64.zip), then try to `mv` it as `~/.config/qv2ray/vcore`.
@@ -130,26 +133,66 @@
 
 ---
 
-> ssh room@10.2.53.12
-> scp -r xxx room@10.2.53.12:/home
-> 
-> sudo sshfs -o allow_other ait@10.1.191.58:/home ~/AIT
+> cat /etc/group|grep sudo # list all sudoers
 >
-> sudo sshfs -o allow_other aic@10.2.53.151:/home ~/AIC
-> 
->sudo sshfs -o allow_other room@10.2.53.12:/home ~/AI2
-> 
-> sudo sshfs -o allow_other hua@10.2.55.146:/home ~/HUA
+> sudo adduser xxx # create user `xxx` without/with sudo
+> sudo useradd -m -d "/home/xxx" -s "/bin/bash" -G sudo xxx; sudo passwd xxx
 >
-> sudo sshfs -o allow_other hua@10.1.191.83:/home ~/Xavier
+> sudo usermod -aG sudo xxx # gain user sudo/27 privileges
+> sudo gpasswd -a xxx sudo # OR: replace all `sudo` with `27`
+>
+> sudo gpasswd -d xxx sudo # remove user sudo privileges
+> sudo usermod -g xxx xxx # remove all supplementary GROUPS
+>
+> sudo userdel -rf xxx # remove user `xxx` and its home
 
 ---
 
-> sudo su; cd /
+> sudo su; cd /home; mv xxx hua # rename user: `xxx` to `hua`
+>
+> sudo gedit /etc/group # replace all `xxx` with `hua`
+> sudo gedit /etc/passwd # replace all `xxx` with `hua`
+> sudo gedit /etc/shadow # replace all `xxx` with `hua`
+
+---
+
+> sudo su; cd / # Backup system
 >
 > tar -cvpzf /home/backup.tgz --exclude=/home/backup* --exclude=/proc --exclude=/tmp --exclude=/lost+found --exclude=/media --exclude=/mnt --exclude=/run /
 >
 > tar tvf backup.tgz | grep xxx
+
+---
+
+> Custom monitor(1920x1080) or remote(1600x900) resolution:
+>
+> cvt 1600 900 # get modeline for `xrandr --newmode`
+> xrandr  # list monitor name: such as `VGA-1 ` for `xrandr --addmode`
+>
+> - Temp: 
+>
+> sudo xrandr --newmode "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync; sudo xrandr --addmode VGA-1 "1600x900_60.00"
+>
+> - Permanent:
+>
+> sudo vi /etc/profile
+>
+> xrandr --newmode "1600x900_60.00"  118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
+> xrandr --addmode VGA-1 "1600x900_60.00"
+
+---
+
+> scp -r xxx hua@192.168.10.107:/home
+>
+> ssh hua@10.20.64.15 -X # aic@10.20.64.16
+>ssh xxx@bjfm.glodon.com -p60022 # wH8JZMX(R$MYN-Jk
+> 
+>sudo sshfs -o allow_other hua@10.2.56.138:/home ~/HUA
+> 
+>sudo sshfs -o allow_other hua@10.1.191.183:/home ~/NX
+> sudo sshfs -o allow_other hua@192.168.10.107:/home ~/NX
+>
+> sudo sshfs -o allow_other jetson@192.168.10.126:/home ~/AGX
 
 ---
 
@@ -161,5 +204,4 @@ $$
 \frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
 \end{vmatrix}
 $$
-
 
